@@ -1,0 +1,10 @@
+type: purple
+窶・' ARCHEON'S DECEIT
+Item Level 23
+Gloves
+Critical Chance +6.86%
+Critical Damage Bonus +39.46%
+Luck +13.12
+Energy Regeneration +13.33
+Damage +80.83
+P +41.4

@@ -24,7 +24,7 @@ type: cards
 "Damage = 10, Strength Bonus = 15" 0
 "Damage = 20" 0
 "Damage Bonus = 5, Strength = 10" 0
-"Damage Bonus = 15, Max Health = 75" 0
+"Damage Bonus = 15, Max Health = 10" 0
 "Damage Bonus = 25, Agility = 10" 0
 "Damage Bonus = 25, Dexterity = 10" 0
 "Damage Bonus = 25, Endurance = 10" 0
@@ -35,11 +35,11 @@ type: cards
 "Damage Reduction = 1, Armor = 50" 0
 "Damage Reduction = 1, Damage = 10" 0
 "Dexterity = 10, Attack Speed = 60" 0
-"Dexterity = 15, Attack Speed = 75" 0
+"Dexterity = 15, Attack Speed = 75" 2
 "Energy Regen = 3, Damage = 10" 0
 "Energy Regen = 3, Max Energy = 3" 0
 "XP Bonus = 25, Agility Bonus = 15" 0
-"XP Bonus = 25, Dexterity Bonus = 15" 0
+"XP Bonus = 25, Dexterity Bonus = 15" 4
 "XP Bonus = 25, Endurance Bonus = 15" 0
 "XP Bonus = 25, Luck Bonus = 15" 0
 "XP Bonus = 25, Stamina Bonus = 15" 0

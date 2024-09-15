@@ -1,0 +1,9 @@
+type: orange
+RAGE WATCH
+Ttem Level 24
+Shoes
+Armor +127.23
+Damage +44.31
+Arcane Orb Damage +15%
+Agility +14.29
+Gain 10% MOVEMENT SPEED

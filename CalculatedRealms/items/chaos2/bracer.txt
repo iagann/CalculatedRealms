@@ -1,0 +1,38 @@
+type: purple
+ANCIENT PHANTOMLIGHT
+WRISTS OF THE ERUDITE LUCK
+Item Level 33
+Bracer
+Critical Damage Bonus +56.27%
+Luck +19.13
+Magery Critical Damage +38.52%
+Magery Damage +38.22%
+Magery Critical Chance +19.36%
+Damage +112.13
+Armor +58.82
+
+type: purple
+ANCIENT PHANTOMLIGHT
+WRISTS OF THE ERUDITE DEX
+Item Level 33
+Bracer
+Critical Damage Bonus +56.27%
+Dexterity +19.13
+Magery Critical Damage +38.52%
+Magery Damage +38.22%
+Magery Critical Chance +19.36%
+Damage +112.13
+Armor +58.82
+
+type: purple
+ANCIENT PHANTOMLIGHT
+WRISTS OF THE ERUDITE STR
+Item Level 33
+Bracer
+Critical Damage Bonus +56.27%
+Strength +19.13
+Magery Critical Damage +38.52%
+Magery Damage +38.22%
+Magery Critical Chance +19.36%
+Damage +112.13
+Armor +58.82
