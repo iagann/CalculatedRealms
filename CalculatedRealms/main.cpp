@@ -5,7 +5,7 @@
 #include <iostream>
 #include <conio.h> // For _kbhit() and _getch()
 
-#define ITEMS_FOLDER "items/chaos3mini"
+#define ITEMS_FOLDER "items/chaos3"
 
 int main()
 {
@@ -40,7 +40,7 @@ int main()
             break;
         case 'i':
             std::cout << "I key pressed\n";
-            std::cout << std::endl << "Build rating: " << calculator.getRatingSimple() << std::endl;
+            calculator.getRatingSimple();
             break;
         case 'a':
             std::cout << "A key pressed\n";
@@ -76,7 +76,7 @@ int main()
                 << "\tA - predict attributes\n"
                 << "\tR - explain rating\n"
                 << "\tT - predict tree\n"
-                << "\tS - show parsed stats, \n"
+                << "\tS - show parsed stats\n"
                 << "\tH - help\n"
                 << "\tQ - quit\n";
             break;

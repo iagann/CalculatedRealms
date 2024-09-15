@@ -190,10 +190,6 @@ void Predictor::predict(Calculator& calculator, const std::vector<Predictor::Pre
 		std::stringstream ss;
 		std::vector<std::pair<double, std::string>> local_predictions;  // Local container for thread safety
 
-		if (statListStr(predictedStats) == "Damage Bonus = 25, Luck = 10" || statListStr(predictedStats) == "Damage Bonus = 25, Wisdom = 10") {
-			int fdsdf = 1;
-		}
-
 		int k = 1;
 		if (predictingCards && parsedCard(predictedStats) > 3) {
 			continue; // more than 3 cards mean a full set, no need to predict
@@ -209,8 +205,10 @@ void Predictor::predict(Calculator& calculator, const std::vector<Predictor::Pre
 		double predictedRating = calculatorCopy.getRatingSimple();
 		double predictedIncrease = (predictedRating - currentRating) / currentRating * 100;
 
+		/*
 		if (predictedIncrease == 0)
 			continue;
+		*/
 
 		ss << std::setw(10) << std::setprecision(3) << predictedIncrease << "%" << " = " << statListStr(predictedStats);
 		//	<< " = " << std::fixed << std::setprecision(17) << predictedRating;
