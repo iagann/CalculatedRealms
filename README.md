@@ -4,8 +4,10 @@ CalculatedRealms is a console-based C++ application that provides various calcul
 The program interacts with the user through keyboard inputs to perform specific tasks related to build optimization and evaluation.
 
 ## Current character build (items/tree/cards) definition
-The program uses user items/tree/cards defined in the folder, check the files in that folder as example. 
+The program uses user items/tree/cards defined in the folder
 ```#define ITEMS_FOLDER "items/chaos3mini"```
+check the files in that folder as example. 
+
 It's recommended to use OCR software to get item stats from the game fast.
 
 To generate tree stats, use this website: [Dwarver Realms passive tree planner](https://dwarvenleaderboar.com/tree). Just copy the stats to the file tree.txt, and don't forget to include "type: tree" as the first line of that file
