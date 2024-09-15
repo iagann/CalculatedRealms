@@ -1,14 +1,20 @@
 # CalculatedRealms
 
 CalculatedRealms is a console-based C++ application that provides various calculations and predictions for game builds, items, attributes, and more.
+
 The program interacts with the user through keyboard inputs to perform specific tasks related to build optimization and evaluation.
+
 Only offhand damage is used for rating calculations.
+
 Current health, regen, armor and damage reduction are also used for rating calculation.
 
 
 Last supported season : chaos week 3 mini
+
 All offhands are supported, although it doesn't affect the rating
+
 **Most of item stats are supported**, more will added after testing and gathering feedback.
+
 **Not all enchants are supported**
 
 ## Current character build (items/tree/cards) definition
