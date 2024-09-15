@@ -1,0 +1,13 @@
+type: purple
+ANCIENT ORB OF THE
+FORGOTTEN ERUDITE
+Ttem Level 33
+Ring
+Luck +18.33
+Magery Critical Damage +39.21%
+Magery Damage +37.4%
+Magery Critical Chance +19.18%
+Damage +112.95
+Armor +58.2
+FOR EACH 150 POINTS in ENDURANCE GAinN 10
+DAMAGE

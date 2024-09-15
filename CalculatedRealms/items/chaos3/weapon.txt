@@ -1,0 +1,10 @@
+type: purple
+/ BOMND OF AGONY
+Item Level 24
+Magery [
+Critical Damage Bonus +42.46%
+Wisdom +14.14
+Magery Damage +26.98%
+Magery Critical Chance +13.94%
+Damage +83.84
+Damage +81.15

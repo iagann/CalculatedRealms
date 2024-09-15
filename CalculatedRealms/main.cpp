@@ -1,0 +1,76 @@
+#include "Calculator.h"
+#include "ItemParser.h"
+#include "Predictor.h"
+
+#include <iostream>
+#include <conio.h> // For _kbhit() and _getch()
+
+#define ITEMS_FOLDER "items/chaos3mini"
+
+int main()
+{
+    setlocale(LC_ALL, "en_US.UTF-8");
+
+    char key = 'H';
+    bool firstLaunch = true;
+    while (1) {
+        if (!firstLaunch)
+            key = _getch();
+        else
+            firstLaunch = false;
+
+        Calculator calculator;
+        //Calculator::setWeaponType(DamageWeapon::WEAPON_TYPE_MAGERY);
+        calculator.setOffhandName(DamageOffhand::OFFHAND_TYPE_DRAGON_FLAME);
+
+        Stats init;
+        init.attributes.base.strength = 3;
+        init.attributes.base.stamina = 8;
+        calculator.setInit(Stats::init() + init);
+
+        std::map<std::string, std::vector<Stats>> stats;
+
+        auto files = ItemParser::FindTxtFilesInFolder(ITEMS_FOLDER);
+        for (const auto& file : files) {
+            stats.insert(std::make_pair(file, ItemParser::ParseStatsFromFile(ITEMS_FOLDER + std::string("/") + file)));
+        }
+        calculator.setStats(stats);
+
+        switch (key) {
+        case 'c':
+            std::cout << "C key pressed\n";
+            Predictor::predictCards(calculator);
+            break;
+        case 'i':
+            std::cout << "I key pressed\n";
+            std::cout << std::endl << "Build rating: " << calculator.getRatingSimple() << std::endl;
+            break;
+        case 'a':
+            std::cout << "A key pressed\n";
+            Predictor::predictAttributes(calculator);
+            break;
+        case 't':
+            std::cout << "T key pressed\n";
+            Predictor::predictTree(calculator);
+            break;
+        case 'r':
+            std::cout << "R key pressed\n";
+            calculator.getBestItemCombo();
+            calculator.verbose = 1;
+            calculator.getRating();
+            calculator.verbose = 2;
+            break;
+        case 'q':
+            std::cout << "Q key pressed. Quitting...\n";
+            // Perform action for 'q'
+            return 0; // Exit the loop and program
+        default:
+            std::cout << "Supported keys:\n\tI - compare items\n\tC - predict cards\n\tA - predict attributes\n\tR - explain rating\n\tT - predict tree\n\tH - help\n\tQ - quit\n";
+            break;
+        }
+
+        std::cout << "\n";
+    }
+
+    return 0;
+}

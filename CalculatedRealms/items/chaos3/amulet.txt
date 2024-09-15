@@ -1,0 +1,10 @@
+type: orange
+STORM LOOP
+Ttem Level 30
+Amulet
+Armor +70.09
+Agility Bonus +6.93%
+Damage +41.51
+Fire Damage Bonus. +45.06%
+FOR EACH 10 POINTS in DEXTERITY GAIN 1% DAMAGE
+sonus

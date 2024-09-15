@@ -1,0 +1,8 @@
+type: gray
+t GOBLET OF LIGHTNING
+Manifests a ring of electric dragons around the
+caster. Dragons orbit the user, crackling with
+intense electrical energy. Inflicts damage to
+foes who come into contact with the ethereal
+serpents. r
+Electric Dragons Damage +1.12%

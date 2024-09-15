@@ -1,0 +1,12 @@
+type: purple
+ANCIENT SHADOW
+TEARDROP SOjUTSUIST BAND
+Item Level 33
+Ring
+Arcane Orb Damage +57.99%
+Luck +19.18
+Spear Critical Damage +37.79%
+Spear Damage +36.51%
+Spear Critical Chance +18.45%
+Damage +116.5
+Armor +55.63

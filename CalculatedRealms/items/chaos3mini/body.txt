@@ -1,0 +1,10 @@
+type: purple
+' ARCHEOM'S SHAME
+Item Level 3
+Body
+Arcane Apocalypse Damage +5.24%
+Critical Chance +0.88%
+Critical Damage Bonus +5.02%
+Luck +1.75
+Energy Regeneration +1.78
+Armor +5.29

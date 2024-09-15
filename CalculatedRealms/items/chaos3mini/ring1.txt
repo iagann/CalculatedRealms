@@ -1,0 +1,8 @@
+type: gold
+9 RING
+Item Level 1
+Ring
+Armor +8
+Lightning Damage Bonus +4.42%
+Luck +1.61
+Attack Speed +15.52

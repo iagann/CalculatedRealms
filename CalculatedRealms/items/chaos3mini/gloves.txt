@@ -1,0 +1,9 @@
+type: gold
+HARMONIYAN SHELL
+Ttrem Level 1
+Gloves
+Armor +8
+Magery Critical Chance +1.3%
+Life Steal +0.8%
+Boss Damage +1.18%
+& 4 Crafting Specks

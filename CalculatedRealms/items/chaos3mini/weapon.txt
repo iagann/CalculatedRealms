@@ -1,0 +1,8 @@
+type: gold
+/ HARMONIYAN SMASHER
+Ttem Level 2
+Magery
+Damage +28.06
+Magery Damage +4%
+Attack Speed +20
+Armor +5

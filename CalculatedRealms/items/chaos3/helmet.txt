@@ -1,0 +1,9 @@
+type: orange
+b, SLAUGHTERED SUIT
+/| Ttem Level 25
+2> Helmet
+Armor +56
+Life Steal Chance +8.77%
+Fire Beam Damage +21.09%
+Max Energy +12.18
+Gain 1% CRiTicaL CHANCE FOR EACH 10 DEXTERITY

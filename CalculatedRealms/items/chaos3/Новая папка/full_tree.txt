@@ -1,0 +1,60 @@
+    Health Bonus: +120%
+    HP Regen Bonus: +1.60%
+    Armor Bonus: +162%
+
+Procs:
+
+    Ancestral Barrier
+    Defiance
+    Taste my Lightning
+
+Crit ⌄
+
+    Crit Chance Bonus: +5%
+    Crit Damage Bonus: +5%
+
+Procs:
+
+    Beast Mode
+    Heightened Senses
+    Arcane Fury
+
+Damage ⌄
+
+    Damage Bonus: +42%
+    Arcane Damage Bonus: +12%
+    Fire Damage Bonus: +107%
+    Lightning Damage Bonus: +98%
+    Boss Damage Bonus: +52%
+
+Procs:
+
+    The Elementalist
+    Fire Starter
+    Defiance
+    Taste my Lightning
+    Beast Mode
+    Arcane Fury
+
+Stats ⌄
+
+    Agility Bonus: +2%
+    Endurance Bonus: +2%
+    Strength Bonus: +21%
+
+Procs:
+
+    Colossal Force
+
+Utility ⌄
+
+    Inventory Slots: +92
+    Experience Bonus: +25%
+    Energy Regen Bonus: +4%
+    Energy Regen: +1
+    Attack Speed: +50
+
+Procs:
+
+    Ancestral Barrier
+    Beast Mode

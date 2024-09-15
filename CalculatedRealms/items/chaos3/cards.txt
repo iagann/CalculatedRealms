@@ -1,0 +1,51 @@
+type: cards
+"Inventory Slots = 4, Arcane Damage Bonus = 10" 0
+"Inventory Slots = 4, Damage Bonus = 10" 0
+"Inventory Slots = 4, Fire Damage Bonus = 10" 0
+"Inventory Slots = 4, Lightning Damage Bonus = 10" 0
+"Armor = 100, Arcane Damage Bonus = 15" 0
+"Armor = 100, Damage Bonus = 15" 0
+"Armor = 100, Fire Damage Bonus = 15" 0
+"Armor = 100, Lightning Damage Bonus = 15" 0
+"Armor = 75, Armor Bonus = 10" 0
+"Boss Damage = 10, Damage = 10" 0
+"Crit Chance = 2, Agility = 10" 0
+"Crit Damage = 15, Agility = 10" 0
+"Crit Damage = 15, Crit Chance = 3" 0
+"Crit Damage = 15, Dexterity = 10" 0
+"Crit Damage = 15, Endurance = 10" 0
+"Crit Damage = 15, Luck = 10" 0
+"Crit Damage = 15, Strength = 10" 0
+"Crit Damage = 15, Wisdom = 10" 0
+"Crit Damage = 25, Strength = 5" 0
+"Damage = 10, Arcane Damage Bonus = 15" 0
+"Damage = 10, Fire Damage Bonus = 15" 0
+"Damage = 10, Lightning Damage Bonus = 15" 0
+"Damage = 10, Strength Bonus = 15" 0
+"Damage = 20" 0
+"Damage Bonus = 5, Strength = 10" 0
+"Damage Bonus = 15, Max Health = 10" 0
+"Damage Bonus = 25, Agility = 10" 0
+"Damage Bonus = 25, Dexterity = 10" 0
+"Damage Bonus = 25, Endurance = 10" 0
+"Damage Bonus = 25, Luck = 10" 0
+"Damage Bonus = 25, Stamina = 10" 0
+"Damage Bonus = 25, Strength = 10" 0
+"Damage Bonus = 25, Wisdom = 10" 0
+"Damage Reduction = 1, Armor = 50" 0
+"Damage Reduction = 1, Damage = 10" 0
+"Dexterity = 10, Attack Speed = 60" 0
+"Dexterity = 15, Attack Speed = 75" 2
+"Energy Regen = 3, Damage = 10" 0
+"Energy Regen = 3, Max Energy = 3" 0
+"XP Bonus = 25, Agility Bonus = 15" 0
+"XP Bonus = 25, Dexterity Bonus = 15" 4
+"XP Bonus = 25, Endurance Bonus = 15" 0
+"XP Bonus = 25, Luck Bonus = 15" 0
+"XP Bonus = 25, Stamina Bonus = 15" 0
+"XP Bonus = 25, Strength Bonus = 15" 0
+"Health Regen = 1, Damage = 10" 0
+"Max Health Bonus = 10" 0
+"Max Health = 60, Stamina Bonus = 10" 0
+"Max Health = 60, Wisdom = 10" 0
+"Strength = 10, Agility = 10, Stamina = 10" 0

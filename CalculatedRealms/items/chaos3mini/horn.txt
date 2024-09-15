@@ -1,0 +1,9 @@
+type: gray
+HORN OF LIGHTRING
+9
+Manifests a ring of electric dragons around the
+caster. Dragons orbit the user, crackling with
+intense electrical energy. Inflicts damage to
+foes who come into contact with the ethereal
+serpents.
+Electric Dragons Damage +1.74%

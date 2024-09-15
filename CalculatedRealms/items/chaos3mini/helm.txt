@@ -1,0 +1,9 @@
+type: gold
+- MYRH HALO
+/ Ttem Level 1
+2> Helmet
+Armor +8
+Vortex Damage +3.5%
+Health Regeneration +9
+Boss Damage +1.15%
+& 4 Crafting Specks

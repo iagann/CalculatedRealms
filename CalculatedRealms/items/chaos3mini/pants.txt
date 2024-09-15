@@ -1,0 +1,8 @@
+type: gold
+FEAR VEIL
+Trem Level 1
+Pants
+Armor +8
+Electric Dragons Damage +3.5%
+Luck Bonus +1.11%
+& 4 Crafting Specks
