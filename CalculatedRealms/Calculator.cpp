@@ -344,18 +344,20 @@ double Calculator::getDamageRating() {
 			elementalMulti,
 			total.damage.offhand.damage[total.damage.offhand.type],
 			total.damage.offhand.bonusDamage[total.damage.offhand.type],
+			total.damage.base.bossDamage,
 			total.stacks.getCurrent(Stacks::STACK_TYPE_MONSTER_HUNTER) * 0.1,
 			total.stacks.getCurrent(Stacks::STACK_TYPE_BEAST_MODE) * 0.1,
 	};
-	double multiply = intermediate[0] * intermediate[1] * (intermediate[2] + intermediate[3] + intermediate[4]);
+	double multiply = intermediate[0] * intermediate[1] * intermediate[2] * (intermediate[3] + intermediate[4] + intermediate[5]);
 	double multiplied = avgCritted * multiply;
 	if (verbose) {
 		Util::SetConsoleColor(thirdColor);
 		std::cout << "\t      * More Elemental damage: " << intermediate[0] * 100 - 100 << "%" << std::endl;
 		std::cout << "\t      * More Offhand damage: " << intermediate[1] * 100 - 100 << "%" << std::endl;
-		std::cout << "\t      * Increased Boss damage: " << intermediate[2] * 100 - 100 << "%" << std::endl;
-		if (intermediate[3]) std::cout << "\t              + Increased Boss damage from Monster Hunter tree node: " << intermediate[3] * 100 << "%" << std::endl;
-		if (intermediate[4]) std::cout << "\t              + Increased Boss damage from Beast Mode tree node: " << intermediate[4] * 100 << "%" << std::endl;
+		std::cout << "\t      * Even more Offhand damage: " << intermediate[2] * 100 - 100 << "%" << std::endl;
+		std::cout << "\t      * Increased Boss damage: " << intermediate[3] * 100 - 100 << "%" << std::endl;
+		if (intermediate[4]) std::cout << "\t              + Increased Boss damage from Monster Hunter tree node: " << intermediate[6] * 100 << "%" << std::endl;
+		if (intermediate[5]) std::cout << "\t              + Increased Boss damage from Beast Mode tree node: " << intermediate[7] * 100 << "%" << std::endl;
 
 		Util::SetConsoleColor(secondColor);
 		std::cout << "\tTotal more damage: " << multiply * 100 - 100 << "%" << std::endl;
