@@ -69,13 +69,13 @@ const std::vector<Predictor::PredictedStats> Predictor::treeNodeList = {
 };
 
 const std::vector<Predictor::PredictedStats> Predictor::attributesList = {
-	{ { "Strength", 100 } },
-	{ { "Agility", 100 } },
-	{ { "Stamina", 100 } },
-	{ { "Wisdom", 100 } },
-	{ { "Endurance", 100 } },
-	{ { "Luck", 100 } },
-	{ { "Dexterity", 100 } },
+	{ { "Strength", 100 }, { "Character level", 100 } },
+	{ { "Agility", 100 }, { "Character level", 100 } },
+	{ { "Stamina", 100 }, { "Character level", 100 } },
+	{ { "Wisdom", 100 }, { "Character level", 100 } },
+	{ { "Endurance", 100 }, { "Character level", 100 } },
+	{ { "Luck", 100 }, { "Character level", 100 } },
+	{ { "Dexterity", 100 }, { "Character level", 100 } },
 };
 
 const std::vector<Predictor::PredictedStats> Predictor::cardList = {

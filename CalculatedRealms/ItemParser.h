@@ -17,6 +17,7 @@ class ItemParser {
 	static std::string WStringToString(const std::wstring& wstr);
 
 public:
+	static int verbose;
 	static void ApplyStat(Stats& stats, const std::string& statName, double value);
 	static std::vector<Stats> ParseStatsFromFile(const std::string& filename);
 	static Stats ParseCardsFromFile(const std::string& filename);

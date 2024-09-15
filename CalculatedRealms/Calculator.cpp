@@ -180,6 +180,21 @@ std::pair<double, double> Calculator::getRating(const std::map<std::string, int>
 
 	total = init + comboStats + cards + types + prediction;
 	totalAttributes = total.attributes.total(total.stacks);
+
+	if (verbose) {
+		const auto secondColor = FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY;
+		const auto thirdColor = FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE;
+		if(verbose) { std::cout << std::endl << "Total attributes:" << std::endl; }
+		Util::SetConsoleColor(secondColor);
+		std::cout << "\tStrength: " << totalAttributes.strength << std::endl;
+		std::cout << "\tStamina: " << totalAttributes.stamina << std::endl;
+		std::cout << "\tDexterity: " << totalAttributes.dexterity << std::endl;
+		std::cout << "\tAgility: " << totalAttributes.agility << std::endl;
+		std::cout << "\tLuck: " << totalAttributes.luck << std::endl;
+		std::cout << "\tEndurance: " << totalAttributes.endurance << std::endl;
+		std::cout << "\tWisdomstrength: " << totalAttributes.wisdom << std::endl;
+		Util::ResetConsoleColor();
+	}
 	/*
 	Util::SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	std::cout << "Total rating: " << totalRating << std::endl;
@@ -295,7 +310,7 @@ double Calculator::getDamageRating() {
 		for (auto type : elementalTypes)
 		{
 			Util::SetConsoleColor(thirdColor);
-			std::cout << "\t\tCalcualating " << type.second << " damage: " << std::endl;
+			std::cout << "\t\tCalculating " << type.second << " damage: " << std::endl;
 			switch (type.first) {
 			case DamageElemental::ELEMENT_TYPE_UNDEFINED:
 				break;

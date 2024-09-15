@@ -17,8 +17,6 @@ public:
 	double xpBonus = 0;
 	double extraInventorySlots = 0;
 
-	bool print = false;
-
 	Stats operator+(const Stats& other) const {
 		Stats result = *this;
 

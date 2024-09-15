@@ -1,0 +1,9 @@
+type: purple
+g DHURAL REMAINS
+Item Level 3
+Relic
+Critical Chance +0.86%
+Critical Damage Bonus +5.39%
+Luck +1.76
+Energy Regeneration +1.75
+Armor +5.29

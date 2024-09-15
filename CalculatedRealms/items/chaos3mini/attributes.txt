@@ -1,0 +1,8 @@
+Character level 23
+Strength 3
+Agility 0
+Stamina 19
+Endurance 0
+Luck 0
+Dexterity 0
+Wisdom 0

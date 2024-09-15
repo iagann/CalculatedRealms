@@ -15,6 +15,8 @@
 
 #include <omp.h>
 
+int ItemParser::verbose = 0;
+
 // Utility function to convert a string to lowercase
 std::string ItemParser::ToLower(const std::string& str) {
     std::string lowerStr = str;
@@ -57,7 +59,7 @@ std::string ItemParser::FindClosestStatName(const std::string& statName) {
         "BONUS FIRE DAMAGE FOR A SHORT DURATION.",
         "EXTRA INVENTORY SLOT",
         "Energy Regeneration", "Gain  ENERGY REGENERATION", "Life Steal Chance", "Max Health", "Max Health Bonus", "Max Energy", "Health Bonus",
-        "HP Regen Bonus", "Health Regen", "Energy Regen Bonus", "Energy Regen", "Health Regeneration",
+        "HP Regen Bonus", "Health Regen", "Energy Regen Bonus", "Energy Regen", "Health Regeneration", "Character level",
         "Strength", "Agility", "Stamina", "Endurance", "Luck", "Dexterity", "Wisdom",
         "Strength Bonus", "Agility Bonus", "Stamina Bonus", "Endurance Bonus", "Luck Bonus", "Dexterity Bonus", "Wisdom Bonus",
         "Damage Bonus", "Experience Bonus", "Damage Reduction", "Damage Reduction Bonus",
@@ -197,6 +199,7 @@ void ItemParser::ApplyStat(Stats& stats, const std::string& statName, double val
         {"Gain  ENERGY REGENERATION", [&](Stats& stats, double value) { stats.survivability.energyRegen += value; }},
         {"Life Steal Chance", [&](Stats& stats, double value) { stats.survivability.lifeStealChance += value / 100; }},
         {"Max Health", [&](Stats& stats, double value) { stats.survivability.maxHealth += value; }},
+        {"Character level", [&](Stats& stats, double value) { stats.survivability.maxHealth += value * 5; }},
         {"Health Bonus", [&](Stats& stats, double value) { stats.survivability.healthBonus += value / 100; }},
         {"Max Health Bonus", [&](Stats& stats, double value) { stats.survivability.healthBonus += value / 100; }},
         {"Health Regen", [&](Stats& stats, double value) { stats.survivability.healthRegen += value; }},
@@ -248,7 +251,7 @@ void ItemParser::ApplyStat(Stats& stats, const std::string& statName, double val
     }
 
     if (statActions.count(statName)) {    // Check existence before using []
-        //if (stats.print) std::cout << "\t" << statName << " " << value << std::endl;
+        if (verbose) std::cout << "\t" << statName << " " << value << std::endl;
         statActions[statName](stats, value);     // Safely call the function
     }
     else {
@@ -260,13 +263,14 @@ void ItemParser::ApplyStat(Stats& stats, const std::string& statName, double val
 std::vector<Stats> ItemParser::ParseStatsFromFile(const std::string& filename) {
     std::vector<Stats> stats;
     Stats stat;
-    stat.print = true;
 
     std::ifstream file(filename);
     std::string line;
-    Util::ResetConsoleColor();
     int itemColour = FOREGROUND_INTENSITY; // FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY;
-    //std::cout << "Parsing file: " << filename << std::endl;
+    if (verbose) {
+        Util::ResetConsoleColor();
+        std::cout << std::endl << "Parsing file: " << filename << std::endl;
+    }
     int skipLines = 0;
     bool isTree = false;
     while (std::getline(file, line)) {
@@ -290,33 +294,33 @@ std::vector<Stats> ItemParser::ParseStatsFromFile(const std::string& filename) {
                 continue;
             }
             if (line == "type: purple") {
-                itemColour = FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_INTENSITY;
+                if (verbose) itemColour = FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_INTENSITY;
                 skipLines = 2;
                 continue;
             }
             if (line == "type: gray") {
-                itemColour = FOREGROUND_INTENSITY;
+                if (verbose) itemColour = FOREGROUND_INTENSITY;
                 skipLines = 2;
                 continue;
             }
             if (line == "type: orange") {
-                itemColour = FOREGROUND_RED | FOREGROUND_INTENSITY;
+                if (verbose) itemColour = FOREGROUND_RED | FOREGROUND_INTENSITY;
                 skipLines = 2;
                 continue;
             }
             if (line == "type: blue") {
-                itemColour = FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY;
+                if (verbose) itemColour = FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY;
                 skipLines = 2;
                 continue;
             }
             if (line == "type: gold") {
-                itemColour = FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY;
+                if (verbose) itemColour = FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY;
                 skipLines = 2;
                 continue;
             }
         }
 
-        Util::SetConsoleColor(itemColour);
+        if (verbose) Util::SetConsoleColor(itemColour);
 
         double value = 0;
 
@@ -383,16 +387,15 @@ std::vector<Stats> ItemParser::ParseStatsFromFile(const std::string& filename) {
                 ApplyStat(stat, statName, value);
             }
         }
-        else if (statName == "FIRE ABILITIES WILL ALSO BENEFIT FROM LIGHTNING"
-            || statName == "FIRE ABILITIES WILL ALSO BENEFIT FROM ARCANE"
-            || statName == "THIS AURA GRANTS YOU FIRE DAMAGE BUFF"
-            || statName == "BONUS FIRE DAMAGE FOR A SHORT DURATION."
-            || statName == "EXTRA INVENTORY SLOT") {
-            ApplyStat(stat, statName);
+        else {
+            for (const auto& stack : Stacks::getStacksMap()) {
+                if (stack.second == statName)
+                    ApplyStat(stat, statName);
+            }
         }
     }
 
-    Util::ResetConsoleColor();
+    if (verbose) Util::ResetConsoleColor();
 
     stats.push_back(stat);
 
@@ -401,7 +404,6 @@ std::vector<Stats> ItemParser::ParseStatsFromFile(const std::string& filename) {
 
 Stats ItemParser::ParseCardsFromFile(const std::string& filename) {
     Stats stats;
-    stats.print = true;
 
     std::ifstream file(filename);
     std::string line;
@@ -464,7 +466,7 @@ Stats ItemParser::ParseCardsFromFile(const std::string& filename) {
         if (cardCount > 3)
             cardCount = 6;
 
-        Util::SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+        if (verbose) Util::SetConsoleColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
         const Predictor::PredictedStats& cardStats = cardList.at(cardListMap.at(cardDef));
         for (const Predictor::PredictedStat& cardStat : cardStats) {
             ApplyStat(stats, cardStat.first, cardStat.second * cardCount);
@@ -472,7 +474,7 @@ Stats ItemParser::ParseCardsFromFile(const std::string& filename) {
         Predictor::parseCard(cardStats, cardCount);
     }
 
-    Util::ResetConsoleColor();
+    if (verbose) Util::ResetConsoleColor();
 
     return stats;
 }

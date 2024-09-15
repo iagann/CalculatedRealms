@@ -1,9 +1,9 @@
 type: gold
-HARMONIYAN SHELL
-Ttrem Level 1
+A" COVETOUS SHELTER
+Ttem Level 3
 Gloves
-Armor +8
-Magery Critical Chance +1.3%
-Life Steal +0.8%
-Boss Damage +1.18%
-& 4 Crafting Specks
+Armor +12
+Stamina +2.5
+Fire Damage Bonus. +6%
+Boss Damage +1.47%
+& 6 Crafting Specks

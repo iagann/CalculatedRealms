@@ -24,7 +24,7 @@ type: cards
 "Damage = 10, Strength Bonus = 15" 0
 "Damage = 20" 1
 "Damage Bonus = 5, Strength = 10" 0
-"Damage Bonus = 15, Max Health = 75" 0
+"Damage Bonus = 15, Max Health = 75" 1
 "Damage Bonus = 25, Agility = 10" 0
 "Damage Bonus = 25, Dexterity = 10" 0
 "Damage Bonus = 25, Endurance = 10" 0

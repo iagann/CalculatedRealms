@@ -1,10 +1,12 @@
 type: purple
-' ARCHEOM'S SHAME
+Q MARDOTH CHEST
 Item Level 3
 Body
-Arcane Apocalypse Damage +5.24%
+Kraken Seed Damage +5.32%
 Critical Chance +0.88%
-Critical Damage Bonus +5.02%
-Luck +1.75
-Energy Regeneration +1.78
-Armor +5.29
+Critical Damage Bonus +4.97%
+Max Health +20.41
+Stamina +1.73
+Strength +1.8
+Agility +1.68
+P +5.04

@@ -23,10 +23,7 @@ int main()
         //Calculator::setWeaponType(DamageWeapon::WEAPON_TYPE_MAGERY);
         calculator.setOffhandName(DamageOffhand::OFFHAND_TYPE_DRAGON_FLAME);
 
-        Stats init;
-        init.attributes.base.strength = 3;
-        init.attributes.base.stamina = 8;
-        calculator.setInit(Stats::init() + init);
+        calculator.setInit(Stats::init());
 
         std::map<std::string, std::vector<Stats>> stats;
 
@@ -60,12 +57,28 @@ int main()
             calculator.getRating();
             calculator.verbose = 2;
             break;
+        case 's':
+            std::cout << "P key pressed\n";
+            ItemParser::verbose = 1;
+            for (const auto& file : files) {
+                ItemParser::ParseStatsFromFile(ITEMS_FOLDER + std::string("/") + file);
+            }
+            ItemParser::verbose = 0;
+            break;
         case 'q':
             std::cout << "Q key pressed. Quitting...\n";
             // Perform action for 'q'
             return 0; // Exit the loop and program
         default:
-            std::cout << "Supported keys:\n\tI - compare items\n\tC - predict cards\n\tA - predict attributes\n\tR - explain rating\n\tT - predict tree\n\tH - help\n\tQ - quit\n";
+            std::cout << "Supported keys:\n"
+                << "\tI - compare items\n"
+                << "\tC - predict cards\n"
+                << "\tA - predict attributes\n"
+                << "\tR - explain rating\n"
+                << "\tT - predict tree\n"
+                << "\tS - show parsed stats, \n"
+                << "\tH - help\n"
+                << "\tQ - quit\n";
             break;
         }
 
