@@ -8,16 +8,8 @@
 #include <cmath>   // For pow
 
 class CardReroller {
-    // Struct to hold card information
-    struct Card {
-        double percentage;   // Original percentage from your data
-        double probability;  // Normalized probability
-        int value;           // Assigned numerical value
-        std::string name;    // Card name and attributes
-    };
-
 public:
-    static void printStrategy(const std::vector<std::pair<double, std::string>>& cardValues, int rerolls) {
+    static void printStrategy(const std::vector<std::pair<double, std::string>>& cardValues, int rerollsLeft) {
         int N = cardValues.size(); // Total number of cards
         const int n = 4;                 // Number of cards drawn each time
 
@@ -32,14 +24,14 @@ public:
         double avgValue = sumValues / N;
 
         // Initialize expected values
-        std::vector<double> E_reroll(rerolls + 1, avgValue); // Expected value when rerolling
-        std::vector<int> optimalK(rerolls + 1, N);           // Optimal K for each M
+        std::vector<double> E_reroll(rerollsLeft + 1, avgValue); // Expected value when rerolling
+        std::vector<int> optimalK(rerollsLeft + 1, N);           // Optimal K for each M
 
         // For M = 0 (no rerolls), expected value is avgValue
         E_reroll[0] = avgValue;
 
         // Iterate over M from 1 to 5
-        for (int m = 1; m <= rerolls; ++m) {
+        for (int m = 1; m <= rerollsLeft; ++m) {
             double maxExpectedValue = 0.0;
             int bestK = N;
 
@@ -75,7 +67,7 @@ public:
         }
 
         // Output the optimal K for each M
-        for (int m = rerolls; m >= 1; --m) {
+        for (int m = rerollsLeft; m >= 1; --m) {
             std::cout << "Optimal K for " << m << " rerolls left: " << optimalK[m] << std::endl;
             //std::cout << "Expected value: " << E_reroll[m] << std::endl;
         }

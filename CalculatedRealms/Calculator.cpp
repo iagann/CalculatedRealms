@@ -310,7 +310,7 @@ double Calculator::getDamageRating() {
 		for (auto type : elementalTypes)
 		{
 			Util::SetConsoleColor(thirdColor);
-			std::cout << "\t\tCalculating " << type.second << " damage: " << std::endl;
+			std::cout << "\t\tCalcualating " << type.second << " damage: " << std::endl;
 			switch (type.first) {
 			case DamageElemental::ELEMENT_TYPE_UNDEFINED:
 				break;

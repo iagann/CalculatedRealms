@@ -6,5 +6,5 @@ Armor +14
 Damage +10
 Fire Orb Damage +5%
 Dragon Flame Damage +4.87%
-Gain 8 ENERGY REGENERATION
+Gain 8 ENERGY REGENERATION f
 & 7 Crafting Specks
