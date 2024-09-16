@@ -1,0 +1,11 @@
+type: purple
+FOSSiL OF THE DWARVEN
+DEMIGODS
+An ancient life source with a powerful force.
+Can be imbued with magical gems. You only
+need ONE fossil.
+Attack Speed +50
+Boss Damage +5%
+Damage Bonus +5%
+Experience Bonus +5%
+Armor Bonus +5%

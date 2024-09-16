@@ -1,0 +1,29 @@
+type: tree
+    Health Bonus: +10%
+    Armor Bonus: +30%
+
+Procs:
+
+    Defiance
+    Taste my Lightning
+
+Crit ⌄
+
+Damage ⌄
+
+    Damage Bonus: +18%
+    Arcane Damage Bonus: +3%
+    Fire Damage Bonus: +15%
+    Lightning Damage Bonus: +15%
+
+Procs:
+
+    Defiance
+    The Elementalist
+    Taste my Lightning
+    Fire Starter
+
+Stats ⌄
+
+    Endurance Bonus: +2%
+    Strength Bonus: +8%

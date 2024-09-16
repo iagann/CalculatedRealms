@@ -1,1 +1,9 @@
-
+type: gold
+DECEITFUL SANCTUARY
+| Item Level 2
+| Shoes
+Armor +10
+Fire Damage Bonus. +4.43%
+Dexterity +2
+Magery Critical Chance +1.4%
+& 3 Crafting Specks

@@ -43,7 +43,7 @@ private:
 		double additional = stacks.getCurrent(Stacks::STACK_TYPE_DEFIANCE) * 0.1
 			+ stacks.getCurrent(Stacks::STACK_TYPE_THE_ELEMENTALIST) * 0.5;
 		switch (type) {
-		case ELEMENT_TYPE_UNDEFINED: return 1;
+		case ELEMENT_TYPE_UNDEFINED: return 1 + additional;
 		case ELEMENT_TYPE_FIRE: return fire + additional + stacks.getCurrent(Stacks::STACK_TYPE_FIRE_STARTER) * 0.01;
 		case ELEMENT_TYPE_LIGHTNING: return lightning + additional + stacks.getCurrent(Stacks::STACK_TYPE_TASTE_MY_LIGHTNING) * 0.01;
 		case ELEMENT_TYPE_ARCANE: return arcane + additional + stacks.getCurrent(Stacks::STACK_TYPE_THE_ARCANE_FURY) * 0.01;

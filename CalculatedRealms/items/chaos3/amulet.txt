@@ -1,0 +1,8 @@
+type: gold
+RADIATING AMULET
+Item Level 3
+Amulet h
+Armor +12
+Vortex Damage +4.69%
+Boss Damage +1.42%
+& 5 Crafting Specks

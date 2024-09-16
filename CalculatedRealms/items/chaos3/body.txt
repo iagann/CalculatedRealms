@@ -1,0 +1,8 @@
+type: gold
+@ FEAR WRAP
+Item Level 3
+A Body
+Armor +12
+Health Regeneration +33.79
+Magery Critical Damage +8.83%
+Spark Damage +4.5%

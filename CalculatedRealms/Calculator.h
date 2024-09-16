@@ -32,7 +32,7 @@ public:
 	std::pair<double, double> getRating(const std::map<std::string, int>& combo);
 	double getRatingSimple() { auto r = getRating(); return r.first * r.second; }
 	double getRatingSimple(const std::map<std::string, int>& combo) { auto r = getRating(combo); return r.first * r.second; }
-	const std::map<std::string, int> getBestItemCombo();
+	const std::map<std::string, int> getBestItemCombo(bool reset = false);
 
 	Calculator copy();
 };

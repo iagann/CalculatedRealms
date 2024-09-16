@@ -1,0 +1,9 @@
+type: purple
+' ARCHEON'S DECEIT
+Item Level 6
+Gloves
+Critical Chance +1.69%
+Critical Damage Bonus +10.57%
+Luck +3.59
+Energy Regeneration +3.4
+Armor +10.59

@@ -1,0 +1,9 @@
+type: gold
+SPIiRIT KEEP
+Trem Level 1
+Bracer
+Armor +8
+Mauls Critical Damage +2.5%
+Boss Damage +1.2%
+Critical Damage Bonus +4.54%
+& 7 Crafting Specks

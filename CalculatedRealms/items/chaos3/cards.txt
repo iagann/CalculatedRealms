@@ -11,7 +11,6 @@ type: cards
 "Boss Damage = 10, Damage = 10" 0
 "Crit Chance = 2, Agility = 10" 0
 "Crit Damage = 15, Agility = 10" 0
-"Crit Damage = 15, Crit Chance = 3" 0
 "Crit Damage = 15, Dexterity = 10" 0
 "Crit Damage = 15, Endurance = 10" 0
 "Crit Damage = 15, Luck = 10" 0
@@ -25,7 +24,7 @@ type: cards
 "Damage = 20" 0
 "Damage Bonus = 5, Strength = 10" 0
 "Damage Bonus = 15, Max Health = 75" 0
-"Damage Bonus = 25, Agility = 10" 0
+"Damage Bonus = 25, Agility = 10" 1
 "Damage Bonus = 25, Dexterity = 10" 0
 "Damage Bonus = 25, Endurance = 10" 0
 "Damage Bonus = 25, Luck = 10" 0
@@ -34,18 +33,40 @@ type: cards
 "Damage Bonus = 25, Wisdom = 10" 0
 "Damage Reduction = 1, Armor = 50" 0
 "Damage Reduction = 1, Damage = 10" 0
-"Dexterity = 10, Attack Speed = 60" 0
+"Dexterity = 10, Attack Speed = 75" 0
 "Dexterity = 15, Attack Speed = 75" 0
 "Energy Regen = 3, Damage = 10" 0
 "Energy Regen = 3, Max Energy = 3" 0
-"XP Bonus = 25, Agility Bonus = 15" 0
-"XP Bonus = 25, Dexterity Bonus = 15" 0
-"XP Bonus = 25, Endurance Bonus = 15" 0
-"XP Bonus = 25, Luck Bonus = 15" 0
-"XP Bonus = 25, Stamina Bonus = 15" 0
-"XP Bonus = 25, Strength Bonus = 15" 0
+"XP Bonus = 15, Agility Bonus = 10" 0
+"XP Bonus = 15, Dexterity Bonus = 10" 0
+"XP Bonus = 15, Endurance Bonus = 10" 0
+"XP Bonus = 15, Luck Bonus = 10" 0
+"XP Bonus = 15, Stamina Bonus = 10" 0
+"XP Bonus = 15, Strength Bonus = 10" 0
+"XP Bonus = 15, Wisdom Bonus = 10" 0
 "Health Regen = 1, Damage = 10" 0
 "Max Health Bonus = 10" 0
-"Max Health = 60, Stamina Bonus = 10" 0
-"Max Health = 60, Wisdom = 10" 0
+"Max Health = 50, Stamina Bonus = 5" 0
+"Max Health = 50, Endurance Bonus = 5" 1
+"Max Health = 50, Wisdom = 10" 0
+"Max Health = 50, Strength = 10" 0
+"Max Health = 50, Stamina = 10" 1
 "Strength = 10, Agility = 10, Stamina = 10" 0
+"Arcane Damage Bonus = 15, Armor = 150" 0
+"Fire Damage Bonus = 15, Armor = 150" 0
+"Lightning Damage Bonus = 15, Armor = 150" 0
+"Arcane Damage Bonus = 15, Armor = 250" 0
+"Fire Damage Bonus = 15, Armor = 250" 2
+"Lightning Damage Bonus = 15, Armor = 250" 0
+"Arcane Damage Bonus = 15, Damage = 10" 0
+"Fire Damage Bonus = 15, Damage = 10" 0
+"Lightning Damage Bonus = 15, Damage = 10" 0
+"Wisdom = 10, Attack Speed = 75" 0
+"Max Energy = 5, Dexterity = 10" 0
+"Endurance = 10, Attack Speed = 75" 0
+"Agility = 10, Attack Speed = 75" 0
+"Strength = 10, Attack Speed = 75" 0
+"Stamina = 10, Attack Speed = 75" 0
+"Luck = 10, Attack Speed = 75" 0
+"Luck = 10, Critical Damage Bonus = 15" 0
+"Crit Chance = 5, Crit Damage Bonus = 20" 0

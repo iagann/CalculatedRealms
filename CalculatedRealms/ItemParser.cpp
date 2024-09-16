@@ -335,7 +335,7 @@ std::vector<Stats> ItemParser::ParseStatsFromFile(const std::string& filename) {
 
         static std::vector<std::string> ignoreStats = {
             // item types
-            "Body", "Helmet", "Gloves", "Pants", "Magery", "Amulet", "Bracer", "Ring", "Relic",
+            "Body", "Helmet", "Gloves", "Pants", "Magery", "Amulet", "Bracer", "Ring", "Relic", "Shoes",
             // dragon
             "powerful yet friendly", "WHER ENEMIES DIiE THEIR CORPSE HAS A CHANCE TO", "EXPLODE DEALING FiRE DAMAGE",
             "YOuR DRAGONLING USES ITS MAGIC TO DIRECTLY", "PICK UP ALL LOOT BAGS",
@@ -352,7 +352,7 @@ std::vector<Stats> ItemParser::ParseStatsFromFile(const std::string& filename) {
             "An ancient life source with a powerful force f",
             "Can be imbued with magical gems. You only", "need ONE fossil.",
             // unused
-            " ", "Gain  MOVEMENT SPEED", "Procs", "Crafting Specks"
+            " ", "Gain  MOVEMENT SPEED", "Procs", "Crafting Specks", "WHER KiLLING AN iMBUED BEETLE SHARE REWARD", "WIiTH ENTIRE FELLOWSHIP",
         };
         bool ignore = false;
 #pragma omp parallel for shared(ignore) num_threads(Util::getMaxThreads())

@@ -1,4 +1,4 @@
-#include "Calculator.h"
+﻿#include "Calculator.h"
 #include "ItemParser.h"
 #include "Predictor.h"
 
@@ -39,18 +39,23 @@ int main()
             Predictor::predictCards(calculator);
             break;
         case 'i':
+        //case 'ш':
             std::cout << "I key pressed\n";
+            calculator.getBestItemCombo(true);
             calculator.getRatingSimple();
             break;
         case 'a':
+        //case 'ф':
             std::cout << "A key pressed\n";
             Predictor::predictAttributes(calculator);
             break;
         case 't':
+        //case 'е':
             std::cout << "T key pressed\n";
             Predictor::predictTree(calculator);
             break;
         case 'r':
+        //case 'к':
             std::cout << "R key pressed\n";
             calculator.getBestItemCombo();
             calculator.verbose = 1;
@@ -58,6 +63,7 @@ int main()
             calculator.verbose = 2;
             break;
         case 's':
+        //case 'ы':
             std::cout << "P key pressed\n";
             ItemParser::verbose = 1;
             for (const auto& file : files) {
@@ -66,6 +72,7 @@ int main()
             ItemParser::verbose = 0;
             break;
         case 'q':
+        //case 'й':
             std::cout << "Q key pressed. Quitting...\n";
             // Perform action for 'q'
             return 0; // Exit the loop and program

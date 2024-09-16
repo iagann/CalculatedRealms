@@ -1,5 +1,5 @@
-Character level 1
-Strength 0
+Character level 38
+Strength 37
 Agility 0
 Stamina 0
 Endurance 0

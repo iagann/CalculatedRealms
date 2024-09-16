@@ -91,7 +91,6 @@ const std::vector<Predictor::PredictedStats> Predictor::cardList = {
 	{ { "Boss Damage", 10 }, { "Damage", 10 } },
 	{ { "Crit Chance", 2 }, { "Agility", 10 } },
 	{ { "Crit Damage", 15 }, { "Agility", 10 } },
-	{ { "Crit Damage", 15 }, { "Crit Chance", 3 } },
 	{ { "Crit Damage", 15 }, { "Dexterity", 10 } },
 	{ { "Crit Damage", 15 }, { "Endurance", 10 } },
 	{ { "Crit Damage", 15 }, { "Luck", 10 } },
@@ -114,21 +113,43 @@ const std::vector<Predictor::PredictedStats> Predictor::cardList = {
 	{ { "Damage Bonus", 25 }, { "Wisdom", 10 } },
 	{ { "Damage Reduction", 1 }, { "Armor", 50 } },
 	{ { "Damage Reduction", 1 }, { "Damage", 10 } },
-	{ { "Dexterity", 10 }, { "Attack Speed", 60 } },
+	{ { "Dexterity", 10 }, { "Attack Speed", 75 } }, // C
 	{ { "Dexterity", 15 }, { "Attack Speed", 75 } },
 	{ { "Energy Regen", 3 }, { "Damage", 10 } },
 	{ { "Energy Regen", 3 }, { "Max Energy", 3 } },
-	{ { "XP Bonus", 25 }, { "Agility Bonus", 15 } },
-	{ { "XP Bonus", 25 }, { "Dexterity Bonus", 15 } },
-	{ { "XP Bonus", 25 }, { "Endurance Bonus", 15 } },
-	{ { "XP Bonus", 25 }, { "Luck Bonus", 15 } },
-	{ { "XP Bonus", 25 }, { "Stamina Bonus", 15 } },
-	{ { "XP Bonus", 25 }, { "Strength Bonus", 15 } },
+	{ { "XP Bonus", 15 }, { "Agility Bonus", 10 } }, // C
+	{ { "XP Bonus", 15 }, { "Dexterity Bonus", 10 } }, // C
+	{ { "XP Bonus", 15 }, { "Endurance Bonus", 10 } }, // C
+	{ { "XP Bonus", 15 }, { "Luck Bonus", 10 } }, // C
+	{ { "XP Bonus", 15 }, { "Stamina Bonus", 10 } }, // C
+	{ { "XP Bonus", 15 }, { "Strength Bonus", 10 } }, // C
+	{ { "XP Bonus", 15 }, { "Wisdom Bonus", 10 } }, // N
 	{ { "Health Regen", 1 }, { "Damage", 10 } },
 	{ { "Max Health Bonus", 10 } },
-	{ { "Max Health", 60 }, { "Stamina Bonus", 10 } },
-	{ { "Max Health", 60 }, { "Wisdom", 10 } },
+	{ { "Max Health", 50 }, { "Stamina Bonus", 5 } }, // C
+	{ { "Max Health", 50 }, { "Endurance Bonus", 5 } }, // New
+	{ { "Max Health", 50 }, { "Wisdom", 10 } }, // New
+	{ { "Max Health", 50 }, { "Strength", 10 } }, // New
+	{ { "Max Health", 50 }, { "Stamina", 10 } }, // New
 	{ { "Strength", 10 }, { "Agility", 10 }, { "Stamina", 10 } },
+	{ { "Arcane Damage Bonus", 15 }, { "Armor", 150 } }, // New
+	{ { "Fire Damage Bonus", 15 }, { "Armor", 150 } }, // New
+	{ { "Lightning Damage Bonus", 15 }, { "Armor", 150 } }, // New
+	{ { "Arcane Damage Bonus", 15 }, { "Armor", 250 } }, // New
+	{ { "Fire Damage Bonus", 15 }, { "Armor", 250 } }, // New
+	{ { "Lightning Damage Bonus", 15 }, { "Armor", 250 } }, // New
+	{ { "Arcane Damage Bonus", 15 }, { "Damage", 10 } }, // New
+	{ { "Fire Damage Bonus", 15 }, { "Damage", 10 } }, // New
+	{ { "Lightning Damage Bonus", 15 }, { "Damage", 10 } }, // New
+	{ { "Wisdom", 10 }, { "Attack Speed", 75 } }, // New
+	{ { "Max Energy", 5 }, { "Dexterity", 10 } }, // New
+	{ { "Endurance", 10 }, { "Attack Speed", 75 } }, // New
+	{ { "Agility", 10 }, { "Attack Speed", 75 } }, // New
+	{ { "Strength", 10 }, { "Attack Speed", 75 } }, // New
+	{ { "Stamina", 10 }, { "Attack Speed", 75 } }, // New
+	{ { "Luck", 10 }, { "Attack Speed", 75 } }, // New
+	{ { "Luck", 10 }, { "Critical Damage Bonus", 15 } }, // New
+	{ { "Crit Chance", 5 }, { "Crit Damage Bonus", 20 } }, // New
 };
 
 std::string Predictor::statListStr(const PredictedStats& statList, bool withValue) {
@@ -178,7 +199,7 @@ void Predictor::predict(Calculator& calculator, const std::vector<Predictor::Pre
 
 	bool predictingCards = predictList == cardList;
 	
-#pragma omp parallel for num_threads(Util::getMaxThreads())
+//#pragma omp parallel for num_threads(Util::getMaxThreads())
 	for (int i = 0; i < predictList.size(); ++i) {
 		Stats stats;
 		const PredictedStats& predictedStats = predictList[i];
@@ -198,6 +219,9 @@ void Predictor::predict(Calculator& calculator, const std::vector<Predictor::Pre
 			k = 3; // if card count is already 3, then next card pick is equal to 6 total cards, 6 - 3 = 3
 		}
 		for (const auto& predictedStat : predictedStats) {
+			if (predictedStat.first == "The Elementalist") {
+				int fds = 1;
+			}
 			ItemParser::ApplyStat(stats, predictedStat.first, predictedStat.second * k);
 		}
 

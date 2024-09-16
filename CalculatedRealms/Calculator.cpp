@@ -35,10 +35,10 @@ std::list<std::map<std::string, int>> Calculator::getAllStatsCombinations() {
 	return result;
 }
 
-const std::map<std::string, int> Calculator::getBestItemCombo() {
+const std::map<std::string, int> Calculator::getBestItemCombo(bool reset) {
 	static std::map<std::string, std::vector<Stats>> lastComputedStats;
 	static std::map<std::string, int> lastBestCombo;
-	if (lastComputedStats == stats) {
+	if (lastComputedStats == stats && !reset) {
 		return lastBestCombo;
 	}
 
@@ -451,7 +451,8 @@ double Calculator::getSurvivalRating() {
 	}
 
 	const double maxArmourDr = 80;
-	const double ruptureArmourConstant = 1922.122; // https://mycurvefit.com/ 5PL Assymetrical sigmoidal
+	// 110 1622.122
+	const double ruptureArmourConstant = 1622.122; // https://mycurvefit.com/ 5PL Assymetrical sigmoidal
 	double armourDr = maxArmourDr - maxArmourDr / (1 + armour / ruptureArmourConstant);
 	double dr = std::min<double>(total.survivability.damageReduction + total.stacks.getCurrent(Stacks::STACK_TYPE_ENVIGORATING_GUST) * 0.05, 0.5); // max 50% dr
 	double ehp = preudoHp
