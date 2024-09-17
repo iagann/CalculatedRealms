@@ -1,11 +1,9 @@
 type: orange
-OBLiViAN CiRCLE
-Ttem Level 5
+BLOOD HEART
+Item Level 9
 Relic
-Armor +37.75
-Strength {30!
-Stamina +3.5
-Energy Regeneration +2.06
-WHER KiLLING AN iMBUED BEETLE SHARE REWARD
-WIiTH ENTIRE FELLOWSHIP
-& 7 Crafting Specks
+Armor +24
+Critical Damage Bonus +15.83%
+Stamina +13.07
+Fire Damage Bonus. +15.06%
+GET 5% ATTACK SPEED PER MAX POTION SLOTS

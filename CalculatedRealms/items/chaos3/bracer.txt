@@ -1,9 +1,10 @@
-type: gold
-SPIiRIT KEEP
-Trem Level 1
+type: orange
+OBLIViAN WATCH
+Ttem Level 8
 Bracer
-Armor +8
-Mauls Critical Damage +2.5%
-Boss Damage +1.2%
-Critical Damage Bonus +4.54%
-& 7 Crafting Specks
+Armor +22
+Health Regeneration +36.62
+Magery Critical Damage +11.67%
+Damage +22.16
+WHER KiLLING An ELITE ENEMY GaAin 10% TO sPawn
+ANOTHER ELITE

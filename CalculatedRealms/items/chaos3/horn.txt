@@ -1,0 +1,11 @@
+type: purple
+, HORM OF FIRE
+A (ﾂｻ Item Level 4
+\
+Projects an intense beam of concentrated fire
+forward. Inflicts damage to enemies in its path,
+creating a linear zone of destruction.
+Fire Beam Damage +9.04%
+FiRe BEAM: AFTER A FEW SECONDS, THE BEAM WiLL |
+EXPAND, LASTING LONGER AND DEALING
+SiGNIFICANTLY MORE DAMAGE.

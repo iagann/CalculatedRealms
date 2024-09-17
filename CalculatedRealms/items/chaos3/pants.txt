@@ -1,9 +1,10 @@
 type: purple
 ・・ARCHEOMN'S DESPISE
-Item Level 8
+Item Level 12
 Pants
-Critical Chance +2.21%
-Critical Damage Bonus +13.61%
-Luck +4.63
-Energy Regeneration +4.63
-Armor +13.65
+Arcane Totem Damage +20.43%
+Critical Chance +3.46%
+Critical Damage Bonus +20.58%
+Luck +6.72
+Energy Regeneration +6.92
+Armor +20.19

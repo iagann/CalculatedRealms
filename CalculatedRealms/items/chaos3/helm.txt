@@ -6,13 +6,3 @@ Armor +35.24
 Magery Critical Chance +1.96%
 Stamina +3.19
 Damage +21.1
-
-type: purple
-a ARCHEOMN'S COVETOUS
-Item Level 8
-Helmet
-Critical Chance +2.28%
-Critical Damage Bonus +13.68%
-Luck +4.56
-Energy Regeneration +4.65
-Armor +13.99

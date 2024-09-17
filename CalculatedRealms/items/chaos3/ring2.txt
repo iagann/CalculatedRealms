@@ -1,0 +1,7 @@
+type: gold
+ANGEL FLOWER
+Q Ttem Level 6
+Ring
+Armor +18
+Fire Beam Damage +13.24%
+Boss Damage +4.06%

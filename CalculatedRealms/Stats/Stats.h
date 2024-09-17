@@ -16,6 +16,7 @@ public:
 	
 	double xpBonus = 0;
 	double extraInventorySlots = 0;
+	double potionSlots = 0;
 
 	Stats operator+(const Stats& other) const {
 		Stats result = *this;
@@ -84,6 +85,8 @@ public:
 		result.survivability.maxEnergy = 100;
 		result.survivability.energyRegen = 1.2;
 		result.survivability.energyRegenBonus = 1;
+
+		result.potionSlots = 3;
 
 		return result;
 	}

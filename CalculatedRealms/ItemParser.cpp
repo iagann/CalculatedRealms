@@ -63,6 +63,7 @@ std::string ItemParser::FindClosestStatName(const std::string& statName) {
         "Strength", "Agility", "Stamina", "Endurance", "Luck", "Dexterity", "Wisdom",
         "Strength Bonus", "Agility Bonus", "Stamina Bonus", "Endurance Bonus", "Luck Bonus", "Dexterity Bonus", "Wisdom Bonus",
         "Damage Bonus", "Experience Bonus", "Damage Reduction", "Damage Reduction Bonus",
+        "GET  ATTACK SPEED PER MAX POTION SLOTS", "Gain  CRIT DAMAGE FOR EVERY 100 ARMOR",
 
     };
 
@@ -223,6 +224,8 @@ void ItemParser::ApplyStat(Stats& stats, const std::string& statName, double val
         {"Gain  CRiTicaL CHANCE FOR EACH 10 DEXTERITY", [&](Stats& stats, double value) { stats.per.critChancePerDex += 0.01 / 10; }},
         {"EXTRA INVENTORY SLOT", [&](Stats& stats, double value) { stats.per.damagePerExtraInventorySlot += 0.01; }},
         {"FOR EACH  POINTS in ENDURANCE GAinN 10", [&](Stats& stats, double value) { stats.per.damagePerEndurance += 10 / 150; }},
+        {"GET  ATTACK SPEED PER MAX POTION SLOTS", [&](Stats& stats, double value) { stats.per.attackSpeedPerPotionSlot += value * 0.05; }},
+        {"Gain  CRIT DAMAGE FOR EVERY 100 ARMOR", [&](Stats& stats, double value) { stats.per.critDamagePerArmour += value * 0.01 / 100; }},
 
         // dragon
         {"FIRE ABILITIES WILL ALSO BENEFIT FROM LIGHTNING", [&](Stats& stats, double value) { stats.damage.elemental.mainType = DamageElemental::ELEMENT_TYPE_FIRE; stats.damage.elemental.secondaryType = DamageElemental::ELEMENT_TYPE_LIGHTNING; }},
@@ -343,6 +346,7 @@ std::vector<Stats> ItemParser::ParseStatsFromFile(const std::string& filename) {
             // fire beam
             "Projects an intense beam of concentrated fire", "forward Inflicts damage to enemies in its path", "creating a linear zone of destruction",
             "Fire BEAM AFTER A FEW SECONDS THE BEAM WiLL", "EXPAND LASTING LONGER AND DEALING", "SiGNIFICANTLY MORE DAMAGE",
+            "Fire BEAM AFTER A FEW SECONDS THE BEAM WiLL",
             // spinning blade
             "around the caster Creates a mobile zone of", "cutting force damaging enemies who venture", "too close",
             // electric dragons
@@ -353,6 +357,7 @@ std::vector<Stats> ItemParser::ParseStatsFromFile(const std::string& filename) {
             "Can be imbued with magical gems. You only", "need ONE fossil.",
             // unused
             " ", "Gain  MOVEMENT SPEED", "Procs", "Crafting Specks", "WHER KiLLING AN iMBUED BEETLE SHARE REWARD", "WIiTH ENTIRE FELLOWSHIP",
+            "WHER KiLLING An ELITE ENEMY GaAin  TO sPawn", "ANOTHER ELITE",
         };
         bool ignore = false;
 #pragma omp parallel for shared(ignore) num_threads(Util::getMaxThreads())
@@ -360,7 +365,7 @@ std::vector<Stats> ItemParser::ParseStatsFromFile(const std::string& filename) {
             // If ignore is already true, skip further checks
             if (ignore) continue;
 
-            if (LevenshteinDistance(ignoreStats[i], line) <= std::max<double>(3, line.length() / 10)) {
+            if (LevenshteinDistance(ignoreStats[i], line) <= std::max<double>(3, line.length() / 9)) {
                 for (const auto& weapon : DamageWeapon::getWeaponMap()) {
                     if (LevenshteinDistance(ignoreStats[i], weapon.second) <= 3)
                         stat.damage.weapon.type = weapon.first;

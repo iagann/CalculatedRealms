@@ -1,9 +1,10 @@
 type: purple
-COVERGENCE
-% Item Level 8
-4 Magery [
-Wisdom +4.55 )
-Magery Critical Chance +4.41%
-Magery Critical Damage +9.43%
-Magery Damage +9.36%
-Damage +57.23
+f COVERGENCE
+b ~~ TItem Level 13
+4 Magery
+Spinning Blade Damage +22.85%
+Wisdom +7.39
+Magery Critical Chance +7.53%
+Magery Critical Damage +14.4%
+Magery Damage +15.45% |
+Damage +87.02

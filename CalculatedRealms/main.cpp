@@ -21,9 +21,11 @@ int main()
 
         Calculator calculator;
         //Calculator::setWeaponType(DamageWeapon::WEAPON_TYPE_MAGERY);
-        calculator.setOffhandName(DamageOffhand::OFFHAND_TYPE_DRAGON_FLAME);
+        calculator.setOffhandName(DamageOffhand::OFFHAND_TYPE_FIRE_BEAM);
 
-        calculator.setInit(Stats::init());
+        Stats init;
+        //init.damage.elemental.mainType = DamageElemental::ELEMENT_TYPE_FIRE;
+        calculator.setInit(Stats::init() + init);
 
         std::map<std::string, std::vector<Stats>> stats;
 
@@ -88,6 +90,8 @@ int main()
                 << "\tQ - quit\n";
             break;
         }
+
+        //Predictor::printCards();
 
         std::cout << "\n";
     }

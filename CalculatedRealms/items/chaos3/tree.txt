@@ -1,20 +1,22 @@
 type: tree
-    Health Bonus: +10%
-    Armor Bonus: +30%
+    Health Bonus: +20%
+    Armor Bonus: +70%
 
 Procs:
 
     Defiance
     Taste my Lightning
+    Ancestral Barrier
 
 Crit ⌄
 
 Damage ⌄
 
-    Damage Bonus: +18%
+    Damage Bonus: +24%
     Arcane Damage Bonus: +3%
     Fire Damage Bonus: +15%
     Lightning Damage Bonus: +15%
+    Boss Damage Bonus: +37%
 
 Procs:
 
@@ -25,5 +27,19 @@ Procs:
 
 Stats ⌄
 
+    Agility Bonus: +2%
     Endurance Bonus: +2%
-    Strength Bonus: +8%
+    Strength Bonus: +15%
+
+Procs:
+
+    Colossal Force
+
+Utility ⌄
+
+    Inventory Slots: +50
+    Attack Speed: +50
+
+Procs:
+
+    Ancestral Barrier

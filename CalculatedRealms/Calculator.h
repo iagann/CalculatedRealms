@@ -16,8 +16,6 @@ private:
 	Stats total;
 	AttributesBase totalAttributes;
 
-	double getDamageRating();
-	double getSurvivalRating();
 	std::list<std::map<std::string, int>> getAllStatsCombinations();
 public:
 	int verbose = 0;

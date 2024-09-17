@@ -1,9 +1,9 @@
 type: gold
-Q RING
-Item Level 2
+MAGICAL ANGEL FLOWER
+Q Item Level 12
 Ring
-Armor +10
-Max Health +211
-Fire Damage Bonus. +7.43%
-Energy Regeneration 1535
-ли
+Armor +61.26
+Energy Regeneration +8.12
+B +25.82
+Luck +15.93
+& 1 Crafting Specks
