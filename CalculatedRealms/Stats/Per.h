@@ -7,6 +7,8 @@ public:
 	double damagePerExtraInventorySlot = 0;
 	double damagePerEndurance = 0;
 	double attackSpeedPerPotionSlot = 0;
+	double damagePerPotionSlot = 0;
+	double armourPerPotionSlot = 0;
 	double critDamagePerArmour = 0;
 
 	Per operator+(const Per& other) const {
@@ -16,6 +18,8 @@ public:
 		result.damagePerExtraInventorySlot += other.damagePerExtraInventorySlot;
 		result.damagePerEndurance += other.damagePerEndurance;
 		result.attackSpeedPerPotionSlot += other.attackSpeedPerPotionSlot;
+		result.damagePerPotionSlot += other.damagePerPotionSlot;
+		result.armourPerPotionSlot += other.armourPerPotionSlot;
 		result.critDamagePerArmour += other.critDamagePerArmour;
 		return result;
 	}
@@ -29,6 +33,8 @@ public:
 			&& this->damagePerExtraInventorySlot == other.damagePerExtraInventorySlot
 			&& this->damagePerEndurance == other.damagePerEndurance
 			&& this->attackSpeedPerPotionSlot == other.attackSpeedPerPotionSlot
+			&& this->damagePerPotionSlot == other.damagePerPotionSlot
+			&& this->armourPerPotionSlot == other.armourPerPotionSlot
 			&& this->critDamagePerArmour == other.critDamagePerArmour;
 	}
 };

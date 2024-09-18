@@ -15,6 +15,8 @@
 
 #include <omp.h>
 
+#define MIN_DISTANCE 3
+
 int ItemParser::verbose = 0;
 
 // Utility function to convert a string to lowercase
@@ -63,7 +65,8 @@ std::string ItemParser::FindClosestStatName(const std::string& statName) {
         "Strength", "Agility", "Stamina", "Endurance", "Luck", "Dexterity", "Wisdom",
         "Strength Bonus", "Agility Bonus", "Stamina Bonus", "Endurance Bonus", "Luck Bonus", "Dexterity Bonus", "Wisdom Bonus",
         "Damage Bonus", "Experience Bonus", "Damage Reduction", "Damage Reduction Bonus",
-        "GET  ATTACK SPEED PER MAX POTION SLOTS", "Gain  CRIT DAMAGE FOR EVERY 100 ARMOR",
+        "GET  ATTACK SPEED PER MAX POTION SLOTS", "Gain  CRIT DAMAGE FOR EVERY 100 ARMOR", "FOR EACH AVAILABLE POTION GET  DAMAGE",
+        "FOR EACH AVAILABLE POTION GET  ARMOUR", "GaAin ADDITIONAL  DAMAGE BONUS FOR EACH", "Extra Potion Slot",
 
     };
 
@@ -96,13 +99,12 @@ std::string ItemParser::FindClosestStatName(const std::string& statName) {
     }
 
     // Set a threshold for acceptable similarity
-    if (minDistance <= std::max<double>(3, statName.length() / 10)) { // Adjust threshold as needed
+    if (minDistance <= std::max<double>(MIN_DISTANCE, statName.length() / 10)) { // Adjust threshold as needed
         return bestMatch;
     }
 
     Util::ResetConsoleColor();
     std::cerr << "\t\tStat not found: '" << statName << "'" << std::endl;
-
     return ""; // Return empty if no suitable match
 }
 
@@ -218,15 +220,18 @@ void ItemParser::ApplyStat(Stats& stats, const std::string& statName, double val
         {"XP Bonus", [&](Stats& stats, double value) { stats.xpBonus += value / 100; }},
         {"Experience Bonus", [&](Stats& stats, double value) { stats.xpBonus += value / 100; }},
         {"Inventory Slots", [&](Stats& stats, double value) { stats.extraInventorySlots += value; }},
+        {"Extra Potion Slot", [&](Stats& stats, double value) { stats.potionSlots += value; }},
 
         // special
         {"FOR EACH  POINTS in DEXTERITY GAIN 1% DAMAGE", [&](Stats& stats, double value) { stats.per.increasedDamagePerDex += 0.01 / 10; }},
         {"Gain  CRiTicaL CHANCE FOR EACH 10 DEXTERITY", [&](Stats& stats, double value) { stats.per.critChancePerDex += 0.01 / 10; }},
-        {"EXTRA INVENTORY SLOT", [&](Stats& stats, double value) { stats.per.damagePerExtraInventorySlot += 0.01; }},
+        {"GaAin ADDITIONAL  DAMAGE BONUS FOR EACH", [&](Stats& stats, double value) { stats.per.damagePerExtraInventorySlot += 0.01; }},
         {"FOR EACH  POINTS in ENDURANCE GAinN 10", [&](Stats& stats, double value) { stats.per.damagePerEndurance += 10 / 150; }},
         {"GET  ATTACK SPEED PER MAX POTION SLOTS", [&](Stats& stats, double value) { stats.per.attackSpeedPerPotionSlot += value * 0.05; }},
+        {"FOR EACH AVAILABLE POTION GET  DAMAGE", [&](Stats& stats, double value) { stats.per.damagePerPotionSlot += value / 100; }},
+        {"FOR EACH AVAILABLE POTION GET  ARMOUR", [&](Stats& stats, double value) { stats.per.armourPerPotionSlot += value; }},
         {"Gain  CRIT DAMAGE FOR EVERY 100 ARMOR", [&](Stats& stats, double value) { stats.per.critDamagePerArmour += value * 0.01 / 100; }},
-
+      
         // dragon
         {"FIRE ABILITIES WILL ALSO BENEFIT FROM LIGHTNING", [&](Stats& stats, double value) { stats.damage.elemental.mainType = DamageElemental::ELEMENT_TYPE_FIRE; stats.damage.elemental.secondaryType = DamageElemental::ELEMENT_TYPE_LIGHTNING; }},
         {"FIRE ABILITIES WILL ALSO BENEFIT FROM ARCANE", [&](Stats& stats, double value) { stats.damage.elemental.mainType = DamageElemental::ELEMENT_TYPE_FIRE; stats.damage.elemental.secondaryType = DamageElemental::ELEMENT_TYPE_ARCANE; }},
@@ -342,7 +347,7 @@ std::vector<Stats> ItemParser::ParseStatsFromFile(const std::string& filename) {
             // dragon
             "powerful yet friendly", "WHER ENEMIES DIiE THEIR CORPSE HAS A CHANCE TO", "EXPLODE DEALING FiRE DAMAGE",
             "YOuR DRAGONLING USES ITS MAGIC TO DIRECTLY", "PICK UP ALL LOOT BAGS",
-            "sonus", "CHANCE TO SPAWN AN AURA NEAR YOU EnTERING", "Gain ADDITIONAL  DAMAGE BONUS FOR EACH", "AFTER A DASH CAUSE A FiRE EXPLOSION AND GAin",
+            "sonus", "CHANCE TO SPAWN AN AURA NEAR YOU EnTERING", "AFTER A DASH CAUSE A FiRE EXPLOSION AND GAin",
             // fire beam
             "Projects an intense beam of concentrated fire", "forward Inflicts damage to enemies in its path", "creating a linear zone of destruction",
             "Fire BEAM AFTER A FEW SECONDS THE BEAM WiLL", "EXPAND LASTING LONGER AND DEALING", "SiGNIFICANTLY MORE DAMAGE",
@@ -357,17 +362,21 @@ std::vector<Stats> ItemParser::ParseStatsFromFile(const std::string& filename) {
             "Can be imbued with magical gems. You only", "need ONE fossil.",
             // unused
             " ", "Gain  MOVEMENT SPEED", "Procs", "Crafting Specks", "WHER KiLLING AN iMBUED BEETLE SHARE REWARD", "WIiTH ENTIRE FELLOWSHIP",
-            "WHER KiLLING An ELITE ENEMY GaAin  TO sPawn", "ANOTHER ELITE",
+            "WHER KiLLING An ELITE ENEMY GaAin  TO sPawn", "ANOTHER ELITE", "burning core Damage",
+            "GET  MOVEMENT SPEED PER MAX POTION SLOTS",
         };
         bool ignore = false;
-#pragma omp parallel for shared(ignore) num_threads(Util::getMaxThreads())
+        auto before = line;
+        line.erase(std::remove_if(line.begin(), line.end(), ::ispunct), line.end());
+        //line.erase(std::remove_if(line.begin(), line.end(), ::isspace), line.end());
+        line = Trim(line);
+//#pragma omp parallel for shared(ignore) num_threads(Util::getMaxThreads())
         for (int i = 0; i < ignoreStats.size(); ++i) {
             // If ignore is already true, skip further checks
             if (ignore) continue;
-
-            if (LevenshteinDistance(ignoreStats[i], line) <= std::max<double>(3, line.length() / 9)) {
+            if (LevenshteinDistance(ignoreStats[i], line) <= std::max<double>(MIN_DISTANCE, line.length() / 9)) {
                 for (const auto& weapon : DamageWeapon::getWeaponMap()) {
-                    if (LevenshteinDistance(ignoreStats[i], weapon.second) <= 3)
+                    if (LevenshteinDistance(ignoreStats[i], weapon.second) <= MIN_DISTANCE)
                         stat.damage.weapon.type = weapon.first;
                 }
 #pragma omp critical
@@ -381,7 +390,7 @@ std::vector<Stats> ItemParser::ParseStatsFromFile(const std::string& filename) {
         if (line == "| ")
             line = "Damage"; // :(
 
-        auto before = line;
+        line = before;
         line.erase(std::remove_if(line.begin(), line.end(), ::ispunct), line.end());
         //line.erase(std::remove_if(line.begin(), line.end(), ::isspace), line.end());
         line = Trim(line);

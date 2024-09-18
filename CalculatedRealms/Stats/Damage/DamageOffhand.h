@@ -21,7 +21,7 @@ public:
 
 	static const std::map<OFFHAND_TYPE, std::string>& getOffhandMap() {
 		static const std::map<OFFHAND_TYPE, std::string> offhandMap = {
-			{ OFFHAND_TYPE_UNKNOWN, "UNknown Offhand Type" },
+			{ OFFHAND_TYPE_UNKNOWN, "Unknown Offhand Type" },
 			{ OFFHAND_TYPE_BURNING_SHIELD, "Burning shield" }, { OFFHAND_TYPE_ELECTRIC_DRAGONS, "Electric dragons" }, {OFFHAND_TYPE_SPINNING_BLADE, "Spinning blade" },
 			{ OFFHAND_TYPE_DELUSION_OF_ZELKORS, "Delusion of Zelkors" }, { OFFHAND_TYPE_CHAIN_LIGHTNING, "Chain lightning" }, {OFFHAND_TYPE_ARCANE_APOCALYPSE, "Arcane apocalypse" },
 			{ OFFHAND_TYPE_DRAGON_FLAME, "Dragon flame" }, { OFFHAND_TYPE_EYE_OF_THE_STORM, "Eye of the storm" }, { OFFHAND_TYPE_ARCANE_ORB, "Arcane orb" },

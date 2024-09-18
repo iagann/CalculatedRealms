@@ -256,6 +256,7 @@ std::pair<double, double> Calculator::getRating(const std::map<std::string, int>
 		intermediate = {
 				total.survivability.armor,
 				totalAttributes.dexterity,
+				total.per.armourPerPotionSlot * total.potionSlots,
 				total.survivability.armorBonus,
 				total.stacks.getCurrent(Stacks::STACK_TYPE_DEFIANCE) * 0.5,
 				total.stacks.getCurrent(Stacks::STACK_TYPE_GRAND_VITALITY) * 0.1,
@@ -263,26 +264,30 @@ std::pair<double, double> Calculator::getRating(const std::map<std::string, int>
 				total.stacks.getCurrent(Stacks::STACK_TYPE_TASTE_MY_LIGHTNING) * 0.01,
 				total.stacks.getCurrent(Stacks::STACK_TYPE_ANCESTRAL_BARRIER) * 0.5,
 		};
-		armour = (intermediate[0] + intermediate[1]) * (intermediate[2] + intermediate[3] + intermediate[4] + intermediate[5] + intermediate[6] + intermediate[7]);
+		int i = 0;
+		armour = (intermediate[i++] + intermediate[i++] + intermediate[i++])
+			* (intermediate[i++] + intermediate[i++] + intermediate[i++] + intermediate[i++] + intermediate[i++] + intermediate[i++]);
 		if (verbose) {
 			Util::SetConsoleColor(thirdColor);
 			std::cout << "\t      + Armor: " << intermediate[0] << std::endl;
 			std::cout << "\t      + Armor from dexterity: " << intermediate[1] << std::endl;
-			std::cout << "\t      * Armor Bonus: " << intermediate[2] * 100 - 100 << "%" << std::endl;
-			if (intermediate[3]) std::cout << "\t              + Health Bonus from Defiance tree node: " << intermediate[3] * 100 - 100 << "%" << std::endl;
-			if (intermediate[4]) std::cout << "\t              + Health Bonus from Grand Vitality tree node: " << intermediate[4] * 100 - 100 << "%" << std::endl;
-			if (intermediate[5]) std::cout << "\t              + Health Bonus from Monster Hunter tree node: " << intermediate[5] * 100 - 100 << "%" << std::endl;
-			if (intermediate[6]) std::cout << "\t              + Health Bonus from Tase My Lightning tree node: " << intermediate[6] * 100 - 100 << "%" << std::endl;
-			if (intermediate[7]) std::cout << "\t              + Health Bonus from Ancestral Barrier tree node: " << intermediate[7] * 100 - 100 << "%" << std::endl;
+			std::cout << "\t      + Armor from potion slots: " << intermediate[2] << std::endl;
+			std::cout << "\t      * Armor Bonus: " << intermediate[3] * 100 - 100 << "%" << std::endl;
+			if (intermediate[4]) std::cout << "\t              + Armor Bonus from Defiance tree node: " << intermediate[4] * 100 << "%" << std::endl;
+			if (intermediate[5]) std::cout << "\t              + Armor Bonus from Grand Vitality tree node: " << intermediate[5] * 100 << "%" << std::endl;
+			if (intermediate[6]) std::cout << "\t              + Armor Bonus from Monster Hunter tree node: " << intermediate[6] * 100 << "%" << std::endl;
+			if (intermediate[7]) std::cout << "\t              + Armor Bonus from Tase My Lightning tree node: " << intermediate[7] * 100 << "%" << std::endl;
+			if (intermediate[8]) std::cout << "\t              + Armor Bonus from Ancestral Barrier tree node: " << intermediate[8] * 100 << "%" << std::endl;
 
 			Util::SetConsoleColor(secondColor);
 			std::cout << "\tTotal Armor: " << armour << std::endl;
 		}
 
 		const double maxArmourDr = 80;
-		// 110 1622.122
+		const int ruptureLevel = 43;		// 110 1622.122
 		const double ruptureArmourConstant = 1622.122; // https://mycurvefit.com/ 5PL Assymetrical sigmoidal
-		double armourDr = maxArmourDr - maxArmourDr / (1 + armour / ruptureArmourConstant);
+		//double armourDr = maxArmourDr - maxArmourDr / (1 + armour / ruptureArmourConstant);
+		double armourDr = armour / (armour + ruptureLevel * 30 + 250);
 		double dr = std::min<double>(total.survivability.damageReduction + total.stacks.getCurrent(Stacks::STACK_TYPE_ENVIGORATING_GUST) * 0.05, 0.5); // max 50% dr
 		double ehp = preudoHp
 			/ (1 - dr)
@@ -290,8 +295,8 @@ std::pair<double, double> Calculator::getRating(const std::map<std::string, int>
 
 		if (verbose) {
 			Util::SetConsoleColor(secondColor);
-			std::cout << "\t\tCurrent rupture: " << 110 << std::endl;
-			std::cout << "\tCurrent Armor DR: " << armourDr << "%" << std::endl;
+			std::cout << "\t\tCurrent rupture: " << ruptureLevel << std::endl;
+			std::cout << "\tCurrent Armor DR: " << armourDr * 100 << "%" << std::endl;
 			std::cout << "\tCurrent DR: " << dr * 100 << "%" << std::endl;
 
 			Util::ResetConsoleColor();
@@ -335,7 +340,8 @@ std::pair<double, double> Calculator::getRating(const std::map<std::string, int>
 				total.per.damagePerExtraInventorySlot * total.extraInventorySlots
 					+ total.stacks.getCurrent(Stacks::STACK_TYPE_CARRIER_HAS_ARRIVED) * 20 * total.per.damagePerExtraInventorySlot,
 				total.stacks.getCurrent(Stacks::STACK_TYPE_THE_STRENGTH_AND_HONOR) * 0.05,
-				total.stacks.getCurrent(Stacks::STACK_TYPE_FIRE_STARTER) * 0.01
+				total.stacks.getCurrent(Stacks::STACK_TYPE_FIRE_STARTER) * 0.01,
+				total.per.damagePerPotionSlot * total.potionSlots,
 		};
 		double increased = std::accumulate(intermediate.begin(), intermediate.end(), 0.0);
 		if (verbose) {
@@ -345,6 +351,7 @@ std::pair<double, double> Calculator::getRating(const std::map<std::string, int>
 			if (intermediate[2]) std::cout << "\t      + Increased damage from inventory slots: " << intermediate[2] * 100 << "%" << std::endl;
 			if (intermediate[3]) std::cout << "\t      + Increased damage from Strength and Honor tree node: " << intermediate[3] * 100 << "%" << std::endl;
 			if (intermediate[4]) std::cout << "\t      + Increased damage from The Fire Starter tree node: " << intermediate[4] * 100 << "%" << std::endl;
+			if (intermediate[5]) std::cout << "\t      + Increased damage from potions slots: " << intermediate[5] * 100 << "%" << std::endl;
 		}
 
 		double increasedFlat = totalFlat * increased;

@@ -1,9 +1,9 @@
 type: orange
-BLOOD HEART
-Item Level 9
+DWARVEN HEART
+Ttem Level 10
 Relic
-Armor +24
-Critical Damage Bonus +15.83%
-Stamina +13.07
-Fire Damage Bonus. +15.06%
-GET 5% ATTACK SPEED PER MAX POTION SLOTS
+Armor +26
+Critical Damage Bonus +13.18%
+Boss Damage +4.2%
+Fire Damage Bonus. +12.19%
+GET 5% MOVEMENT SPEED PER MAX POTION SLOTS.

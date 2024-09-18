@@ -1,6 +1,6 @@
 type: tree
     Health Bonus: +20%
-    Armor Bonus: +70%
+    Armor Bonus: +75%
 
 Procs:
 
@@ -12,11 +12,11 @@ Crit ⌄
 
 Damage ⌄
 
-    Damage Bonus: +24%
+    Damage Bonus: +26%
     Arcane Damage Bonus: +3%
     Fire Damage Bonus: +15%
     Lightning Damage Bonus: +15%
-    Boss Damage Bonus: +37%
+    Boss Damage Bonus: +43%
 
 Procs:
 
@@ -37,7 +37,7 @@ Procs:
 
 Utility ⌄
 
-    Inventory Slots: +50
+    Inventory Slots: +74
     Attack Speed: +50
 
 Procs:

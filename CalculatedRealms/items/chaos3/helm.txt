@@ -1,8 +1,10 @@
-type: gold
-e RUNE CARESS
-Ttem Level 5
-Helmet
-Armor +35.24
-Magery Critical Chance +1.96%
-Stamina +3.19
-Damage +21.1
+type: orange
+ﾃｩ窶・ PLAGUED NOOSE
+Trem Level 11
+Amulet
+Armor +28
+Burning Core Damage +8.5%
+Stamina 5.59
+Dexterity Bonus. +2.99% ;
+FOR EACH AVAILABLE POTION, GET 20% DAMAGE. 1
+& 6 Crafting Specks
