@@ -1,8 +1,8 @@
-Character level 78
-Strength 77
+Character level 91
+Strength 0
 Agility 0
 Stamina 0
 Endurance 0
 Luck 0
-Dexterity 0
+Dexterity 90
 Wisdom 0

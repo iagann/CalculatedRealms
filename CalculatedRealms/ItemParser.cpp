@@ -67,6 +67,7 @@ std::string ItemParser::FindClosestStatName(const std::string& statName) {
         "Damage Bonus", "Experience Bonus", "Damage Reduction", "Damage Reduction Bonus",
         "GET  ATTACK SPEED PER MAX POTION SLOTS", "Gain  CRIT DAMAGE FOR EVERY 100 ARMOR", "FOR EACH AVAILABLE POTION GET  DAMAGE",
         "FOR EACH AVAILABLE POTION GET  ARMOUR", "GaAin ADDITIONAL  DAMAGE BONUS FOR EACH", "Extra Potion Slot",
+        "Gain  CRiTicaL CHANCE FOR EVERY 10",
 
     };
 
@@ -225,6 +226,7 @@ void ItemParser::ApplyStat(Stats& stats, const std::string& statName, double val
         // special
         {"FOR EACH  POINTS in DEXTERITY GAIN 1% DAMAGE", [&](Stats& stats, double value) { stats.per.increasedDamagePerDex += 0.01 / 10; }},
         {"Gain  CRiTicaL CHANCE FOR EACH 10 DEXTERITY", [&](Stats& stats, double value) { stats.per.critChancePerDex += 0.01 / 10; }},
+        {"Gain  CRiTicaL CHANCE FOR EVERY 10", [&](Stats& stats, double value) { stats.per.critChancePerDex += 0.01 / 10; }},
         {"GaAin ADDITIONAL  DAMAGE BONUS FOR EACH", [&](Stats& stats, double value) { stats.per.damagePerExtraInventorySlot += 0.01; }},
         {"FOR EACH  POINTS in ENDURANCE GAinN 10", [&](Stats& stats, double value) { stats.per.damagePerEndurance += 10 / 150; }},
         {"GET  ATTACK SPEED PER MAX POTION SLOTS", [&](Stats& stats, double value) { stats.per.attackSpeedPerPotionSlot += value * 0.05; }},

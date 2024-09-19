@@ -1,10 +1,11 @@
 type: orange
-ﾃｩ窶・ PLAGUED NOOSE
-Trem Level 11
-Amulet
-Armor +28
-Burning Core Damage +8.5%
-Stamina 5.59
-Dexterity Bonus. +2.99% ;
-FOR EACH AVAILABLE POTION, GET 20% DAMAGE. 1
-& 6 Crafting Specks
+HAVOC CHAmPioON
+Ttem Level 14
+Helmet
+Armor +34
+Critical Chance +11.33%
+Death Blade Damage +19.25%
+Damage +23.78
+Gain 1% CRiTicaL CHANCE FOR EVERY 10
+DEeXTERITY.
+& 5 Crafting Specks

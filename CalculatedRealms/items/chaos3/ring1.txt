@@ -1,9 +1,9 @@
 type: gold
-MAGICAL ANGEL FLOWER
-Q Item Level 12
+HAVOC HEART
+Q Ttem Level 15
 Ring
-Armor +61.26
-Energy Regeneration +8.12
-B +25.82
-Luck +15.93
-& 1 Crafting Specks
+Armor +36
+Max Health +102
+Energy Regeneration +3.89
+Damage +21
+& 7 Crafting Specks

@@ -1,9 +1,9 @@
 type: purple
 ' ARCHEON'S DECEIT
-Item Level 10
+Item Level 16
 Gloves
-Critical Chance +2.86%
-Critical Damage Bonus +16.63%
-Luck +5.88
-Energy Regeneration 515!
-Armor +17.54
+Critical Chance +4.59%
+Critical Damage Bonus +26.82%
+Luck 07
+Energy Regeneration +9.17
+Armor +27.42

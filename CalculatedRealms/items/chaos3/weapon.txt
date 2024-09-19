@@ -1,10 +1,9 @@
 type: purple
-f COVERGENCE
-b ~~ TItem Level 13
+COVERGENCE
+% Ttem Level 15
 4 Magery
-Spinning Blade Damage +22.85%
-Wisdom +7.39
-Magery Critical Chance +7.53%
-Magery Critical Damage +14.4%
-Magery Damage +15.45% |
-Damage +87.02
+Wisdom +8.37
+Magery Critical Chance +8.8%
+Magery Critical Damage +17.49%
+Magery Damage +17.47%
+Damage +107.04

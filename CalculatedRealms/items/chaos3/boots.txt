@@ -1,9 +1,10 @@
-type: gold
-DECEITFUL SANCTUARY
-| Item Level 2
-| Shoes
-Armor +10
-Fire Damage Bonus. +4.43%
-Dexterity +2
-Magery Critical Chance +1.4%
-& 3 Crafting Specks
+type: orange
+窶・RAGE SUIT
+Ttem Level 14
+Shoes
+Armor +61.99
+Energy Regeneration +3.8
+Stamina +8
+Strength +7.59
+Gain 6 ENERGY REGENERATION.
+& 4 Crafting Specks

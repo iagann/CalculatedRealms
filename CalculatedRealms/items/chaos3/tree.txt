@@ -1,6 +1,6 @@
 type: tree
-    Health Bonus: +20%
-    Armor Bonus: +75%
+    Health Bonus: +40%
+    Armor Bonus: +90%
 
 Procs:
 
@@ -10,9 +10,15 @@ Procs:
 
 Crit ⌄
 
+    Crit Damage Bonus: +3%
+
+Procs:
+
+    Heightened Senses
+
 Damage ⌄
 
-    Damage Bonus: +26%
+    Damage Bonus: +28%
     Arcane Damage Bonus: +3%
     Fire Damage Bonus: +15%
     Lightning Damage Bonus: +15%
