@@ -1,0 +1,13 @@
+type: purple
+FOSSIL OF THE DWARVEN
+DEMIGODS
+An ancient life source with a powerful force. Can be
+mbued with magical gems. You only need ONE
+ossil.
+Attack Speed +61.57
+Boss Damage +16.74%
+Damage Bonus +17.37%
+Experience Bonus +18.4%
+Armor Bonus +16.47%
+Archery Damage +2.6%
+Max Health +20.6

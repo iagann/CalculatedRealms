@@ -1,0 +1,8 @@
+type: purple
+GOBLET OF FIRE
+Ttem Level 4
+Generates volatile lava droplets. Molten projectiles
+ctonate on impact, dealing area-of-cffect damage to
+=nemies within the blast radius.
+Carnage Of Fire damage +10.22%
+CaRrnAGE oF Fire: Mow spawns on Enemies.

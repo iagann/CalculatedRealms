@@ -184,7 +184,8 @@ std::pair<double, double> Calculator::getRating(const std::map<std::string, int>
 	if (verbose) {
 		const auto secondColor = FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY;
 		const auto thirdColor = FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE;
-		if(verbose) { std::cout << std::endl << "Total attributes:" << std::endl; }
+		std::cout << std::endl << "Weapon type: " << DamageWeapon::getWeaponMap().at(total.damage.weapon.type) << std::endl;
+		std::cout << std::endl << "Total attributes:" << std::endl;
 		Util::SetConsoleColor(secondColor);
 		std::cout << "\tStrength: " << totalAttributes.strength << std::endl;
 		std::cout << "\tStamina: " << totalAttributes.stamina << std::endl;
@@ -223,34 +224,40 @@ std::pair<double, double> Calculator::getRating(const std::map<std::string, int>
 			Util::SetConsoleColor(secondColor);
 			std::cout << "\tTotal health: " << health << std::endl;
 		}
+		double preudoHp = health;
 
-		intermediate = {
+		if (total.survivability.disableRegen) {
+			if (verbose) std::cout << "\t        Health Regen is disabled by the enchant" << std::endl;
+		}
+		else {
+			intermediate = {
 				total.survivability.healthRegen,
 				totalAttributes.stamina * 0.03,
 				total.survivability.hpRegenBonus,
 				total.stacks.getCurrent(Stacks::STACK_TYPE_ENVIGORATING_GUST) * 0.05,
 				total.stacks.getCurrent(Stacks::STACK_TYPE_TOLERANCE) * 0.1,
 				total.stacks.getCurrent(Stacks::STACK_TYPE_CLARITY) * 0.1,
-		};
-		double regen = (intermediate[0] + intermediate[1]) * (intermediate[2] + intermediate[3] + intermediate[4] + intermediate[5]);
-		double preudoHp = (health + REGEN_WEIGHT * regen);
-		if (verbose) {
-			Util::SetConsoleColor(thirdColor);
+			};
+			double regen = (intermediate[0] + intermediate[1]) * (intermediate[2] + intermediate[3] + intermediate[4] + intermediate[5]);
+			preudoHp += REGEN_WEIGHT * regen;
+			if (verbose) {
+				Util::SetConsoleColor(thirdColor);
 
-			std::cout << "\t      + Health Regen: " << intermediate[0] << std::endl;
-			std::cout << "\t      + Health Regen from stamina: " << intermediate[1] << std::endl;
-			std::cout << "\t      * Health Regen Bonus: " << intermediate[2] * 100 - 100 << "%" << std::endl;
-			if (intermediate[3]) std::cout << "\t/t      + Health Regen Bonus from Envigorating Gust tree node: " << intermediate[3] * 100 - 100 << "%" << std::endl;
-			if (intermediate[4]) std::cout << "\t/t      + Health Regen Bonus from Tolerance tree node: " << intermediate[4] * 100 - 100 << "%" << std::endl;
-			if (intermediate[5]) std::cout << "\t/t      + Health Regen Bonus from Clarity tree node: " << intermediate[5] * 100 - 100 << "%" << std::endl;
+				std::cout << "\t      + Health Regen: " << intermediate[0] << std::endl;
+				std::cout << "\t      + Health Regen from stamina: " << intermediate[1] << std::endl;
+				std::cout << "\t      * Health Regen Bonus: " << intermediate[2] * 100 - 100 << "%" << std::endl;
+				if (intermediate[3]) std::cout << "\t/t      + Health Regen Bonus from Envigorating Gust tree node: " << intermediate[3] * 100 - 100 << "%" << std::endl;
+				if (intermediate[4]) std::cout << "\t/t      + Health Regen Bonus from Tolerance tree node: " << intermediate[4] * 100 - 100 << "%" << std::endl;
+				if (intermediate[5]) std::cout << "\t/t      + Health Regen Bonus from Clarity tree node: " << intermediate[5] * 100 - 100 << "%" << std::endl;
 
 
-			Util::SetConsoleColor(secondColor);
-			std::cout << "\tTotal Health Regen: " << regen << std::endl;
-			Util::SetConsoleColor(thirdColor);
-			std::cout << "\t      * Health Regen EHP multiplier: (total regen * " << REGEN_WEIGHT << ") is added as EHP" << std::endl;
-			Util::SetConsoleColor(secondColor);
-			std::cout << "\tTotal Max Health and Health Regen: " << preudoHp << std::endl;
+				Util::SetConsoleColor(secondColor);
+				std::cout << "\tTotal Health Regen: " << regen << std::endl;
+				Util::SetConsoleColor(thirdColor);
+				std::cout << "\t      * Health Regen EHP multiplier: (total regen * " << REGEN_WEIGHT << ") is added as EHP" << std::endl;
+				Util::SetConsoleColor(secondColor);
+				std::cout << "\tTotal Max Health and Health Regen: " << preudoHp << std::endl;
+			}
 		}
 
 		intermediate = {

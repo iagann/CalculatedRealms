@@ -1,0 +1,10 @@
+type: orange
+SPIRIT BAND
+Ttem Level 12
+Amulet
+Armor +63.43
+Attack Speed 47411
+Health Regeneration +59.44
+ife Steal +3.63%
+GAin 500 DEXTERITY BUT HAVE NO LiFE STEAL AND
+NO HEALTH REGENERATION.

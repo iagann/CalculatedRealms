@@ -1,0 +1,12 @@
+type: purple
+MIRE PLATE CHEST
+Body
+Chain Lightning Damage +16.15%
+Critical Chance +2.68%
+Critical Damage Bonus +15.5%
+Strength +5.33
+Energy Regeneration +5.4
+Stamina +5.17
+Agility +5.21
+Max Health +64.12
+Armor +15.94

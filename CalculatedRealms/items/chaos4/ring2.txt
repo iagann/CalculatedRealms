@@ -1,0 +1,8 @@
+type: gold
+MAGICAL ANGEL FLOWER
+Q Ttem Level 3
+Ring
+Armor 12
+Two Hand Critical Chance +1.6%
+Archery Damage +5.72%
+& 4 Crafting Specks

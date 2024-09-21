@@ -1,0 +1,9 @@
+type: gold
+TIBERIAN SPIRAL
+Q Ttem Level 13
+Ring
+Armor 32
+Damage +28.88
+Boss Damage +3.6%
+Dexterity Bonus 0.71%
+& 2 Crafting Specks

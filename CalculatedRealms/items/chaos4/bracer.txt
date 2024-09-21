@@ -1,0 +1,11 @@
+type: orange
+VENGANCE CARAPACE
+@ Ttem Level 19
+Bracer
+Armor +44
+Max Health +263.34
+Foxicity Damage +12.5%
+Boss Damage +7.29%
+For eVERY 2 POInTS in DEXTERITY, GAIn 1%
+DAMAGE.
+|

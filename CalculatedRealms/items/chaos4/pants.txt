@@ -1,0 +1,10 @@
+type: purple
+ARCHEON'S DESPISE
+Ttem Level 14
+Pants
+Carnage Of Fire damage +24.98%
+Critical Chance +3.92%
+Critical Damage Bonus +2474%
+Luck )
+Energy Regeneration +8.15
+Armor +248

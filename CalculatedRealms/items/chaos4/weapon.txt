@@ -1,0 +1,10 @@
+type: purple
+N SupPInITY
+&\ Ttem Level 10
+Archery
+Ferocity of Wolves Damage +17.57%
+Dexterity +5.53
+Archery Critical Chance +5.7%
+Archery Critical Damage +1117%
+Archery Damage +1111%
+Damage +66.96

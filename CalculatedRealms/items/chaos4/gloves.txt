@@ -1,0 +1,10 @@
+type: purple
+ARCHEON'S DECEIT
+窶・Item Level 19
+Gloves
+Arcane Orb Damage +32.15%
+Critical Chance +5.3%
+Critical Damage Bonus +32.22%
+Luck +10.76
+Energy Regeneration +10.49
+Armor +32.65

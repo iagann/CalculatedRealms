@@ -1,0 +1,11 @@
+type: orange
+EXALTED CHARM
+Ttem Level 12
+Relic
+Armor +30
+Arcane Orb Damage +9%
+Fire Damage Bonus +22.71%
+Critical Damage Bonus +12.9%
+GENERATE TWICE AS MUCH FELLOWSHIP
+EXPERIENCE POINTS.
+|

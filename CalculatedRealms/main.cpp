@@ -1,15 +1,17 @@
 ﻿#include "Calculator.h"
 #include "ItemParser.h"
 #include "Predictor.h"
+#include "Util.h"
 
 #include <iostream>
 #include <conio.h> // For _kbhit() and _getch()
 
-#define ITEMS_FOLDER "items/chaos3"
+#define ITEMS_FOLDER "items/chaos4"
 
 int main()
 {
     setlocale(LC_ALL, "en_US.UTF-8");
+    Util::ResetConsoleColor();
 
     char key = 'H';
     bool firstLaunch = true;
@@ -21,7 +23,7 @@ int main()
 
         Calculator calculator;
         //Calculator::setWeaponType(DamageWeapon::WEAPON_TYPE_MAGERY);
-        calculator.setOffhandName(DamageOffhand::OFFHAND_TYPE_FIRE_BEAM);
+        calculator.setOffhandName(DamageOffhand::OFFHAND_TYPE_CARNAGE_OF_FIRE);
 
         Stats init;
         //init.damage.elemental.mainType = DamageElemental::ELEMENT_TYPE_FIRE;

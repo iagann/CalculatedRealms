@@ -55,8 +55,10 @@ std::string ItemParser::FindClosestStatName(const std::string& statName) {
         "Increased Damage", "Lifesteal Chance", "Lifesteal Amount", "Life Steal",
         "Boss Damage", "Boss Damage Bonus", "XP Bonus", "Inventory Slots",
         "Gain  CRiTicaL CHANCE FOR EACH 10 DEXTERITY", "FOR EACH  POINTS in DEXTERITY GAIN 1% DAMAGE", "FOR EACH  POINTS in ENDURANCE GAinN 10",
-        "FIRE ABILITIES WILL ALSO BENEFIT FROM LIGHTNING",
-        "FIRE ABILITIES WILL ALSO BENEFIT FROM ARCANE",
+        "FIRE ABILITIES WILL ALSO BENEFIT FROM LIGHTNING", "FIRE ABILITIES WILL ALSO BENEFIT FROM ARCANE",
+        "LIGHTNING ABILITIES WILL ALSO BENEFIT FROM FIRE", "LIGHTNING ABILITIES WILL ALSO BENEFIT FROM ARCANE",
+        "ARCANE ABILITIES WILL ALSO BENEFIT FROM FIRE", "ARCANE ABILITIES WILL ALSO BENEFIT FROM LIGHTNING",
+        "BONUS FIRE DAMAGE FOR A SHORT DURATION.",
         "THIS AURA GRANTS YOU FIRE DAMAGE BUFF",
         "BONUS FIRE DAMAGE FOR A SHORT DURATION.",
         "EXTRA INVENTORY SLOT",
@@ -67,7 +69,7 @@ std::string ItemParser::FindClosestStatName(const std::string& statName) {
         "Damage Bonus", "Experience Bonus", "Damage Reduction", "Damage Reduction Bonus",
         "GET  ATTACK SPEED PER MAX POTION SLOTS", "Gain  CRIT DAMAGE FOR EVERY 100 ARMOR", "FOR EACH AVAILABLE POTION GET  DAMAGE",
         "FOR EACH AVAILABLE POTION GET  ARMOUR", "GaAin ADDITIONAL  DAMAGE BONUS FOR EACH", "Extra Potion Slot",
-        "Gain  CRiTicaL CHANCE FOR EVERY 10",
+        "Gain  CRiTicaL CHANCE FOR EVERY 10", "GAin  DEXTERITY BUT HAVE NO LiFE STEAL AND", "For eVERY  POInTS in DEXTERITY GAIn 1",
 
     };
 
@@ -224,7 +226,8 @@ void ItemParser::ApplyStat(Stats& stats, const std::string& statName, double val
         {"Extra Potion Slot", [&](Stats& stats, double value) { stats.potionSlots += value; }},
 
         // special
-        {"FOR EACH  POINTS in DEXTERITY GAIN 1% DAMAGE", [&](Stats& stats, double value) { stats.per.increasedDamagePerDex += 0.01 / 10; }},
+        {"FOR EACH  POINTS in DEXTERITY GAIN 1% DAMAGE", [&](Stats& stats, double value) { stats.per.increasedDamagePerDex += 0.01 / value; }},
+        {"For eVERY  POInTS in DEXTERITY GAIn 1", [&](Stats& stats, double value) { stats.per.increasedDamagePerDex += 0.01 / value; }},
         {"Gain  CRiTicaL CHANCE FOR EACH 10 DEXTERITY", [&](Stats& stats, double value) { stats.per.critChancePerDex += 0.01 / 10; }},
         {"Gain  CRiTicaL CHANCE FOR EVERY 10", [&](Stats& stats, double value) { stats.per.critChancePerDex += 0.01 / 10; }},
         {"GaAin ADDITIONAL  DAMAGE BONUS FOR EACH", [&](Stats& stats, double value) { stats.per.damagePerExtraInventorySlot += 0.01; }},
@@ -233,10 +236,15 @@ void ItemParser::ApplyStat(Stats& stats, const std::string& statName, double val
         {"FOR EACH AVAILABLE POTION GET  DAMAGE", [&](Stats& stats, double value) { stats.per.damagePerPotionSlot += value / 100; }},
         {"FOR EACH AVAILABLE POTION GET  ARMOUR", [&](Stats& stats, double value) { stats.per.armourPerPotionSlot += value; }},
         {"Gain  CRIT DAMAGE FOR EVERY 100 ARMOR", [&](Stats& stats, double value) { stats.per.critDamagePerArmour += value * 0.01 / 100; }},
+        {"GAin  DEXTERITY BUT HAVE NO LiFE STEAL AND", [&](Stats& stats, double value) { stats.attributes.base.dexterity += value; stats.survivability.disableRegen = true; stats.survivability.disableLeech = true; }},
       
         // dragon
         {"FIRE ABILITIES WILL ALSO BENEFIT FROM LIGHTNING", [&](Stats& stats, double value) { stats.damage.elemental.mainType = DamageElemental::ELEMENT_TYPE_FIRE; stats.damage.elemental.secondaryType = DamageElemental::ELEMENT_TYPE_LIGHTNING; }},
         {"FIRE ABILITIES WILL ALSO BENEFIT FROM ARCANE", [&](Stats& stats, double value) { stats.damage.elemental.mainType = DamageElemental::ELEMENT_TYPE_FIRE; stats.damage.elemental.secondaryType = DamageElemental::ELEMENT_TYPE_ARCANE; }},
+        {"LIGHTNING ABILITIES WILL ALSO BENEFIT FROM FIRE", [&](Stats& stats, double value) { stats.damage.elemental.mainType = DamageElemental::ELEMENT_TYPE_LIGHTNING; stats.damage.elemental.secondaryType = DamageElemental::ELEMENT_TYPE_FIRE; }},
+        {"LIGHTNING ABILITIES WILL ALSO BENEFIT FROM ARCANE", [&](Stats& stats, double value) { stats.damage.elemental.mainType = DamageElemental::ELEMENT_TYPE_LIGHTNING; stats.damage.elemental.secondaryType = DamageElemental::ELEMENT_TYPE_ARCANE; }},
+        {"ARCANE ABILITIES WILL ALSO BENEFIT FROM LIGHTNING", [&](Stats& stats, double value) { stats.damage.elemental.mainType = DamageElemental::ELEMENT_TYPE_ARCANE; stats.damage.elemental.secondaryType = DamageElemental::ELEMENT_TYPE_LIGHTNING; }},
+        {"ARCANE ABILITIES WILL ALSO BENEFIT FROM FIRE", [&](Stats& stats, double value) { stats.damage.elemental.mainType = DamageElemental::ELEMENT_TYPE_ARCANE; stats.damage.elemental.secondaryType = DamageElemental::ELEMENT_TYPE_FIRE; }},
         {"THIS AURA GRANTS YOU FIRE DAMAGE BUFF", [&](Stats& stats, double value) { stats.damage.elemental.fire += Stacks::AURA_DAMAGE_BUFF * 50 / 100; }},
         {"BONUS FIRE DAMAGE FOR A SHORT DURATION.", [&](Stats& stats, double value) { stats.damage.elemental.fire += 50 / 100; }},
     };
@@ -345,11 +353,12 @@ std::vector<Stats> ItemParser::ParseStatsFromFile(const std::string& filename) {
 
         static std::vector<std::string> ignoreStats = {
             // item types
-            "Body", "Helmet", "Gloves", "Pants", "Magery", "Amulet", "Bracer", "Ring", "Relic", "Shoes",
+            "Body", "Helmet", "Gloves", "Pants", "Magery", "Amulet", "Bracer", "Ring", "Relic", "Shoes", "Archery",
             // dragon
             "powerful yet friendly", "WHER ENEMIES DIiE THEIR CORPSE HAS A CHANCE TO", "EXPLODE DEALING FiRE DAMAGE",
             "YOuR DRAGONLING USES ITS MAGIC TO DIRECTLY", "PICK UP ALL LOOT BAGS",
             "sonus", "CHANCE TO SPAWN AN AURA NEAR YOU EnTERING", "AFTER A DASH CAUSE A FiRE EXPLOSION AND GAin",
+            "WHEN ENEMIES DIE THEIR CORPSE HAS A CHANCE",
             // fire beam
             "Projects an intense beam of concentrated fire", "forward Inflicts damage to enemies in its path", "creating a linear zone of destruction",
             "Fire BEAM AFTER A FEW SECONDS THE BEAM WiLL", "EXPAND LASTING LONGER AND DEALING", "SiGNIFICANTLY MORE DAMAGE",
@@ -359,20 +368,28 @@ std::vector<Stats> ItemParser::ParseStatsFromFile(const std::string& filename) {
             // electric dragons
             "Manifests a ring of electric dragons around the", "caster Dragons orbit the user crackling with",
             "intense electrical energy Inflicts damage to", "foes who come into contact with the ethereal", "serpents r",
+            // rain of flames
+            "rain down inflicting areaofcffect damage to", "dversaries within range", 
+            "Rain oF FLames WHen a MEeTEOR LanDS iT", "CREATES A POOL OF LAVA THAT CONTiNUOUSLY", "DAMAGES ENEMIES",
             // fossil
-            "An ancient life source with a powerful force f",
-            "Can be imbued with magical gems. You only", "need ONE fossil.",
+            "An ancient life source with a powerful force f", "Can be imbued with magical gems. You only", "need ONE fossil.",
+            "An ancient life source with a powerful force Can be", "mbued with magical gems You only need ONE", "fossil",
+            // carnage of fire
+            "Generates volatile lava droplets Molten projectiles", "ctonate on impact dealing areaofcffect damage to",
+            "nemies within the blast radius", "CaRrnAGE oF Fire Mow spawns on Enemies", "CaRnAGE OF Fire EXPLOSIONS RADIUS GROWS",
             // unused
             " ", "Gain  MOVEMENT SPEED", "Procs", "Crafting Specks", "WHER KiLLING AN iMBUED BEETLE SHARE REWARD", "WIiTH ENTIRE FELLOWSHIP",
             "WHER KiLLING An ELITE ENEMY GaAin  TO sPawn", "ANOTHER ELITE", "burning core Damage",
-            "GET  MOVEMENT SPEED PER MAX POTION SLOTS",
+            "GET  MOVEMENT SPEED PER MAX POTION SLOTS", "GENERATE TWICE AS MUCH FELLOWSHIP",
         };
         bool ignore = false;
         auto before = line;
         line.erase(std::remove_if(line.begin(), line.end(), ::ispunct), line.end());
         //line.erase(std::remove_if(line.begin(), line.end(), ::isspace), line.end());
         line = Trim(line);
-//#pragma omp parallel for shared(ignore) num_threads(Util::getMaxThreads())
+#ifndef _DEBUG
+#pragma omp parallel for shared(ignore) num_threads(Util::getMaxThreads())
+#endif
         for (int i = 0; i < ignoreStats.size(); ++i) {
             // If ignore is already true, skip further checks
             if (ignore) continue;
@@ -402,6 +419,9 @@ std::vector<Stats> ItemParser::ParseStatsFromFile(const std::string& filename) {
             if (!statName.empty()) {
                 ApplyStat(stat, statName, value);
             }
+        }
+        else if (statName.find("WILL ALSO BENEFIT FROM") != std::string::npos) {
+            ApplyStat(stat, statName, 1);
         }
         else {
             for (const auto& stack : Stacks::getStacksMap()) {

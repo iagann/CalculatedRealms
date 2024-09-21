@@ -1,0 +1,60 @@
+type: tree
+
+    Health Bonus: +32%
+    HP Regen Bonus: +1.25%
+    Armor Bonus: +63%
+
+Procs:
+
+    Ancestral Barrier
+    Defiance
+    Taste my Lightning
+    Invigorating Gust
+
+Crit ⌄
+
+    Crit Chance Bonus: +4%
+    Crit Damage Bonus: +3.50%
+
+Procs:
+
+    Heightened Senses
+    Arcane Fury
+    Phantom Strike
+
+Damage ⌄
+
+    Damage Bonus: +20%
+    Arcane Damage Bonus: +12%
+    Fire Damage Bonus: +15%
+    Lightning Damage Bonus: +15%
+    Boss Damage Bonus: +37%
+
+Procs:
+
+    Defiance
+    The Elementalist
+    Taste my Lightning
+    Arcane Fury
+    Fire Starter
+
+Stats ⌄
+
+    Agility Bonus: +2%
+    Endurance Bonus: +2%
+    Strength Bonus: +6%
+
+Procs:
+
+    Colossal Force
+
+Utility ⌄
+
+    Inventory Slots: +74
+    Energy Regen Bonus: +10%
+    Attack Speed: +50
+
+Procs:
+
+    Infinite Wind
+    Ancestral Barrier

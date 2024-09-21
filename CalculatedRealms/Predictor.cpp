@@ -79,92 +79,92 @@ const std::vector<Predictor::PredictedStats> Predictor::attributesList = {
 };
 
 const std::vector<Predictor::PredictedStats> Predictor::cardList = {
-	{ { "Inventory Slots", 4 }, { "Arcane Damage Bonus", 10 } },   // CHECK
-	{ { "Inventory Slots", 4 }, { "Damage Bonus", 10 } },   // CHECK
-	{ { "Inventory Slots", 4 }, { "Fire Damage Bonus", 10 } },   // CHECK
-	{ { "Inventory Slots", 4 }, { "Lightning Damage Bonus", 10 } },   // CHECK
-	{ { "Armor", 75 }, { "Armor Bonus", 10 } }, // CHECK
-	{ { "Boss Damage", 10 }, { "Damage", 10 } }, // CHECK
-	{ { "Crit Chance", 2 }, { "Agility", 10 } }, // CHECK
-	{ { "Crit Chance", 2 }, { "Dexterity", 10 } }, // CHECK
-	{ { "Crit Chance", 2 }, { "Endurance", 10 } }, // CHECK
-	{ { "Crit Chance", 2 }, { "Luck", 10 } }, // CHECK
-	{ { "Crit Chance", 2 }, { "Strength", 10 } }, // CHECK
-	{ { "Crit Chance", 2 }, { "Wisdom", 10 } }, // CHECK
-	{ { "Crit Chance", 2 }, { "Stamina", 10 } }, // CHECK
-	{ { "Crit Damage", 15 }, { "Agility", 10 } }, // CHECK
-	{ { "Crit Damage", 15 }, { "Dexterity", 10 } }, // CHECK
-	{ { "Crit Damage", 15 }, { "Endurance", 10 } }, // CHECK
-	{ { "Crit Damage", 15 }, { "Luck", 10 } }, // CHECK
-	{ { "Crit Damage", 15 }, { "Strength", 10 } }, // CHECK
-	{ { "Crit Damage", 15 }, { "Wisdom", 10 } }, // CHECK
-	{ { "Crit Damage", 15 }, { "Stamina", 10 } }, // CHECK
-	{ { "Crit Damage", 20 }, { "Strength", 5 } }, // CHECK
-	{ { "Damage", 10 }, { "Arcane Damage Bonus", 10 } }, // CHECK
-	{ { "Damage", 10 }, { "Fire Damage Bonus", 10 } }, // CHECK
-	{ { "Damage", 10 }, { "Lightning Damage Bonus", 10 } }, // CHECK
-	{ { "Damage", 10 }, { "Strength Bonus", 15 } }, // CHECK
-	{ { "Damage", 20 } }, // CHECK
-	{ { "Damage Bonus", 5 }, { "Strength", 10 } },  // CHECK
+	{ { "Inventory Slots", 4 }, { "Arcane Damage Bonus", 10 } }, 
+	{ { "Inventory Slots", 4 }, { "Damage Bonus", 10 } }, 
+	{ { "Inventory Slots", 4 }, { "Fire Damage Bonus", 10 } }, 
+	{ { "Inventory Slots", 4 }, { "Lightning Damage Bonus", 10 } }, 
+	{ { "Armor", 75 }, { "Armor Bonus", 10 } }, 
+	{ { "Boss Damage", 10 }, { "Damage", 10 } }, 
+	{ { "Crit Chance", 5 }, { "Agility", 10 } }, 
+	{ { "Crit Chance", 5 }, { "Dexterity", 10 } }, 
+	{ { "Crit Chance", 5 }, { "Endurance", 10 } }, 
+	{ { "Crit Chance", 5 }, { "Luck", 10 } }, 
+	{ { "Crit Chance", 5 }, { "Strength", 10 } }, 
+	{ { "Crit Chance", 5 }, { "Wisdom", 10 } }, 
+	{ { "Crit Chance", 5}, { "Stamina", 10 } }, 
+	{ { "Crit Damage", 15 }, { "Agility", 10 } }, 
+	{ { "Crit Damage", 15 }, { "Dexterity", 10 } }, 
+	{ { "Crit Damage", 15 }, { "Endurance", 10 } }, 
+	{ { "Crit Damage", 15 }, { "Luck", 10 } }, 
+	{ { "Crit Damage", 15 }, { "Strength", 10 } }, 
+	{ { "Crit Damage", 15 }, { "Wisdom", 10 } }, 
+	{ { "Crit Damage", 15 }, { "Stamina", 10 } }, 
+	{ { "Crit Damage", 20 }, { "Strength", 5 } }, 
+	{ { "Damage", 10 }, { "Arcane Damage Bonus", 10 } }, 
+	{ { "Damage", 10 }, { "Fire Damage Bonus", 10 } }, 
+	{ { "Damage", 10 }, { "Lightning Damage Bonus", 10 } }, 
+	{ { "Damage", 10 }, { "Strength Bonus", 15 } }, 
+	{ { "Damage", 20 } }, 
+	{ { "Damage Bonus", 5 }, { "Strength", 10 } }, 
 	{ { "Damage Bonus", 15 }, { "Max Health", 75 } },
-	{ { "Damage Bonus", 25 }, { "Agility", 10 } }, // CHECK
-	{ { "Damage Bonus", 25 }, { "Dexterity", 10 } }, // CHECK
-	{ { "Damage Bonus", 25 }, { "Endurance", 10 } }, // CHECK
-	{ { "Damage Bonus", 25 }, { "Luck", 10 } }, // CHECK
-	{ { "Damage Bonus", 25 }, { "Stamina", 10 } }, // CHECK
-	{ { "Damage Bonus", 25 }, { "Strength", 10 } }, // CHECK
-	{ { "Damage Bonus", 25 }, { "Wisdom", 10 } }, // CHECK
-	{ { "Damage Reduction", 1 }, { "Armor", 50 } }, // CHECK
-	{ { "Damage Reduction", 1 }, { "Damage", 10 } }, // CHECK
-	{ { "Attack Speed", 60 }, { "Dexterity", 10 } },  // CHECK
-	{ { "Energy Regen", 3 }, { "Damage", 10 } },  // CHECK
-	{ { "Energy Regen", 3 }, { "Max Energy", 3 } },  // CHECK
-	{ { "XP Bonus", 15 }, { "Agility Bonus", 10 } },  // CHECK
-	{ { "XP Bonus", 15 }, { "Dexterity Bonus", 10 } },   // CHECK
-	{ { "XP Bonus", 15 }, { "Endurance Bonus", 10 } },  // CHECK
-	{ { "XP Bonus", 15 }, { "Luck Bonus", 10 } },  // CHECK
-	{ { "XP Bonus", 15 }, { "Stamina Bonus", 10 } }, // CHECK
-	{ { "XP Bonus", 15 }, { "Strength Bonus", 10 } }, // CHECK
-	{ { "XP Bonus", 15 }, { "Wisdom Bonus", 10 } },  // CHECK
-	{ { "Health Regen", 1 }, { "Damage", 10 } },  // CHECK
-	{ { "Max Health Bonus", 10 } }, // CHECK
-	{ { "Max Health", 50 }, { "Stamina Bonus", 5 } }, // CHECK 
-	{ { "Max Health", 50 }, { "Endurance Bonus", 5 } }, // CHECK
-	{ { "Max Health", 50 }, { "Wisdom Bonus", 5 } }, // CHECK
-	{ { "Max Health", 50 }, { "Strength Bonus", 5 } }, // CHECK
-	{ { "Max Health", 50 }, { "Agility Bonus", 5 } }, // CHECK
-	{ { "Max Health", 50 }, { "Dexterity Bonus", 5 } }, // CHECK
-	{ { "Max Health", 50 }, { "Luck Bonus", 5 } }, // CHECK
-	{ { "Max Health", 50 }, { "Wisdom", 10 } }, // CHECK
-	{ { "Max Health", 50 }, { "Strength", 10 } }, // CHECK
-	{ { "Max Health", 50 }, { "Endurance", 10 } }, // CHECK
-	{ { "Max Health", 50 }, { "Agility", 10 } }, // CHECK
-	{ { "Max Health", 50 }, { "Dexterity", 10 } }, // CHECK
-	{ { "Max Health", 50 }, { "Luck", 10 } }, // CHECK
-	{ { "Max Health", 50 }, { "Stamina", 10 } }, // CHECK
-	{ { "Arcane Damage Bonus", 15 }, { "Damage", 10 } }, // CHECK
-	{ { "Fire Damage Bonus", 15 }, { "Damage", 10 } }, // CHECK
-	{ { "Lightning Damage Bonus", 15 }, { "Damage", 10 } }, // CHECK
-	{ { "Max Energy", 5 }, { "Endurance", 10 } }, // CHECK
-	{ { "Max Energy", 5 }, { "Agility", 10 } }, // CHECK
-	{ { "Max Energy", 5 }, { "Stamina", 10 } }, // CHECK
-	{ { "Max Energy", 5 }, { "Dexterity", 10 } }, // CHECK
-	{ { "Max Energy", 5 }, { "Luck", 10 } }, // CHECK
-	{ { "Max Energy", 5 }, { "Wisdom", 10 } }, // CHECK
-	{ { "Max Energy", 5 }, { "Strength", 10 } }, // CHECK
-	{ { "Arcane Damage Bonus", 15 }, { "Armor", 150 } },  // CHECK
-	{ { "Fire Damage Bonus", 15 }, { "Armor", 150 } },  // CHECK
-	{ { "Lightning Damage Bonus", 15 }, { "Armor", 150 } },  // CHECK
-	{ { "Damage Bonus", 15 }, { "Armor", 150 } }, // CHECK
-	{ { "Endurance", 10 }, { "Attack Speed", 75 } }, // CHECK
-	{ { "Agility", 10 }, { "Attack Speed", 75 } }, // CHECK
-	{ { "Strength", 10 }, { "Attack Speed", 75 } }, // CHECK
-	{ { "Stamina", 10 }, { "Attack Speed", 75 } },// CHECK
-	{ { "Dexterity", 10 }, { "Attack Speed", 75 } }, // CHECK
-	{ { "Luck", 10 }, { "Attack Speed", 75 } }, // CHECK
-	{ { "Wisdom", 10 }, { "Attack Speed", 75 } }, // CHECK
-	{ { "Crit Chance", 5 }, { "Crit Damage Bonus", 20 } }, // CHECK
-	{ { "Extra Potion Slot", 1 } },  // CHECK
+	{ { "Damage Bonus", 25 }, { "Agility", 10 } }, 
+	{ { "Damage Bonus", 25 }, { "Dexterity", 10 } }, 
+	{ { "Damage Bonus", 25 }, { "Endurance", 10 } }, 
+	{ { "Damage Bonus", 25 }, { "Luck", 10 } }, 
+	{ { "Damage Bonus", 25 }, { "Stamina", 10 } }, 
+	{ { "Damage Bonus", 25 }, { "Strength", 10 } }, 
+	{ { "Damage Bonus", 25 }, { "Wisdom", 10 } }, 
+	{ { "Damage Reduction", 1 }, { "Armor", 50 } }, 
+	{ { "Damage Reduction", 1 }, { "Damage", 10 } }, 
+	{ { "Attack Speed", 60 }, { "Dexterity", 10 } }, 
+	{ { "Energy Regen", 3 }, { "Damage", 10 } }, 
+	{ { "Energy Regen", 3 }, { "Max Energy", 3 } }, 
+	{ { "XP Bonus", 15 }, { "Agility Bonus", 10 } }, 
+	{ { "XP Bonus", 15 }, { "Dexterity Bonus", 10 } }, 
+	{ { "XP Bonus", 15 }, { "Endurance Bonus", 10 } }, 
+	{ { "XP Bonus", 15 }, { "Luck Bonus", 10 } }, 
+	{ { "XP Bonus", 15 }, { "Stamina Bonus", 10 } }, 
+	{ { "XP Bonus", 15 }, { "Strength Bonus", 10 } }, 
+	{ { "XP Bonus", 15 }, { "Wisdom Bonus", 10 } }, 
+	{ { "Health Regen", 1 }, { "Damage", 10 } }, 
+	{ { "Max Health Bonus", 10 } }, 
+	{ { "Max Health", 50 }, { "Stamina Bonus", 5 } }, 
+	{ { "Max Health", 50 }, { "Endurance Bonus", 5 } }, 
+	{ { "Max Health", 50 }, { "Wisdom Bonus", 5 } }, 
+	{ { "Max Health", 50 }, { "Strength Bonus", 5 } }, 
+	{ { "Max Health", 50 }, { "Agility Bonus", 5 } }, 
+	{ { "Max Health", 50 }, { "Dexterity Bonus", 5 } }, 
+	{ { "Max Health", 50 }, { "Luck Bonus", 5 } }, 
+	{ { "Max Health", 50 }, { "Wisdom", 10 } }, 
+	{ { "Max Health", 50 }, { "Strength", 10 } }, 
+	{ { "Max Health", 50 }, { "Endurance", 10 } }, 
+	{ { "Max Health", 50 }, { "Agility", 10 } }, 
+	{ { "Max Health", 50 }, { "Dexterity", 10 } }, 
+	{ { "Max Health", 50 }, { "Luck", 10 } }, 
+	{ { "Max Health", 50 }, { "Stamina", 10 } }, 
+	{ { "Arcane Damage Bonus", 15 }, { "Damage", 10 } }, 
+	{ { "Fire Damage Bonus", 15 }, { "Damage", 10 } }, 
+	{ { "Lightning Damage Bonus", 15 }, { "Damage", 10 } }, 
+	{ { "Max Energy", 5 }, { "Endurance", 10 } }, 
+	{ { "Max Energy", 5 }, { "Agility", 10 } }, 
+	{ { "Max Energy", 5 }, { "Stamina", 10 } }, 
+	{ { "Max Energy", 5 }, { "Dexterity", 10 } }, 
+	{ { "Max Energy", 5 }, { "Luck", 10 } }, 
+	{ { "Max Energy", 5 }, { "Wisdom", 10 } }, 
+	{ { "Max Energy", 5 }, { "Strength", 10 } }, 
+	{ { "Arcane Damage Bonus", 15 }, { "Armor", 150 } }, 
+	{ { "Fire Damage Bonus", 15 }, { "Armor", 150 } }, 
+	{ { "Lightning Damage Bonus", 15 }, { "Armor", 150 } }, 
+	{ { "Damage Bonus", 15 }, { "Armor", 150 } }, 
+	{ { "Endurance", 10 }, { "Attack Speed", 75 } }, 
+	{ { "Agility", 10 }, { "Attack Speed", 75 } }, 
+	{ { "Strength", 10 }, { "Attack Speed", 75 } }, 
+	{ { "Stamina", 10 }, { "Attack Speed", 75 } },
+	{ { "Dexterity", 10 }, { "Attack Speed", 75 } }, 
+	{ { "Luck", 10 }, { "Attack Speed", 75 } }, 
+	{ { "Wisdom", 10 }, { "Attack Speed", 75 } }, 
+	{ { "Crit Chance", 5 }, { "Crit Damage Bonus", 20 } }, 
+	{ { "Extra Potion Slot", 1 } }, 
 };
 
 std::string Predictor::statListStr(const PredictedStats& statList, bool withValue) {
@@ -214,7 +214,9 @@ void Predictor::predict(Calculator& calculator, const std::vector<Predictor::Pre
 
 	bool predictingCards = predictList == cardList;
 	
-//#pragma omp parallel for num_threads(Util::getMaxThreads())
+#ifndef _DEBUG
+#pragma omp parallel for num_threads(Util::getMaxThreads())
+#endif
 	for (int i = 0; i < predictList.size(); ++i) {
 		Stats stats;
 		const PredictedStats& predictedStats = predictList[i];
@@ -234,7 +236,7 @@ void Predictor::predict(Calculator& calculator, const std::vector<Predictor::Pre
 			k = 3; // if card count is already 3, then next card pick is equal to 6 total cards, 6 - 3 = 3
 		}
 		for (const auto& predictedStat : predictedStats) {
-			if (predictedStat.first == "The Elementalist") {
+			if (predictedStat.first == "Extra Potion Slot") {
 				int fds = 1;
 			}
 			ItemParser::ApplyStat(stats, predictedStat.first, predictedStat.second * k);

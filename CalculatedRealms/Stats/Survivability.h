@@ -14,6 +14,8 @@ public:
 	double lifeSteal = 0;
 	double lifeStealChance = 0;
 	double damageReduction = 0;
+	bool disableRegen = false;
+	bool disableLeech = false;
 
 	Survivability operator+(const Survivability& other) const {
 		Survivability result = *this;
@@ -29,6 +31,8 @@ public:
 		result.lifeSteal += other.lifeSteal;
 		result.lifeStealChance += other.lifeStealChance;
 		result.damageReduction += other.damageReduction;
+		result.disableRegen = disableRegen || other.disableRegen;
+		result.disableLeech = disableLeech || other.disableLeech;
 		return result;
 	}
 
@@ -48,6 +52,8 @@ public:
 			&& this->energyRegenBonus == other.energyRegenBonus
 			&& this->lifeSteal == other.lifeSteal
 			&& this->lifeStealChance == other.lifeStealChance
-			&& this->damageReduction == other.damageReduction;
+			&& this->damageReduction == other.damageReduction
+			&& this->disableRegen == other.disableRegen
+			&& this->disableLeech == other.disableLeech;
 	}
 };

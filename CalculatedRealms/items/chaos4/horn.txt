@@ -1,0 +1,8 @@
+type: purple
+HORN OF FIRE
+N (ﾂｻ Item Level 2
+Generates volatile lava droplets. Molten projectiles
+ctonate on impact, dealing area-of-cffect damage to
+=nemies within the blast radius.
+Carnage Of Fire damage +7.61%
+CaRnAGE OF Fire: EXPLOSIONS RADIUS GROWS.
