@@ -8,7 +8,7 @@ type: cards
 "Crit Chance = 5, Agility = 10" 0
 "Crit Chance = 5, Dexterity = 10" 0
 "Crit Chance = 5, Endurance = 10" 0
-"Crit Chance = 5, Luck = 10" 2
+"Crit Chance = 5, Luck = 10" 3
 "Crit Chance = 5, Strength = 10" 0
 "Crit Chance = 5, Wisdom = 10" 0
 "Crit Chance = 5, Stamina = 10" 1
@@ -61,7 +61,7 @@ type: cards
 "Max Health = 50, Agility = 10" 0
 "Max Health = 50, Dexterity = 10" 0
 "Max Health = 50, Luck = 10" 0
-"Max Health = 50, Stamina = 10" 0
+"Max Health = 50, Stamina = 10" 1
 "Arcane Damage Bonus = 15, Damage = 10" 0
 "Fire Damage Bonus = 15, Damage = 10" 4
 "Lightning Damage Bonus = 15, Damage = 10" 0

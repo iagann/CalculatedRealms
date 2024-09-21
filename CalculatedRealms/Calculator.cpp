@@ -193,7 +193,7 @@ std::pair<double, double> Calculator::getRating(const std::map<std::string, int>
 		std::cout << "\tAgility: " << totalAttributes.agility << std::endl;
 		std::cout << "\tLuck: " << totalAttributes.luck << std::endl;
 		std::cout << "\tEndurance: " << totalAttributes.endurance << std::endl;
-		std::cout << "\tWisdomstrength: " << totalAttributes.wisdom << std::endl;
+		std::cout << "\tWisdom: " << totalAttributes.wisdom << std::endl;
 		Util::ResetConsoleColor();
 	}
 
@@ -207,19 +207,22 @@ std::pair<double, double> Calculator::getRating(const std::map<std::string, int>
 
 		std::vector<double> intermediate = {
 				total.survivability.maxHealth,
+				total.characterLevel * 5,
 				totalAttributes.stamina * 5,
 				total.survivability.healthBonus,
 				total.stacks.getCurrent(Stacks::STACK_TYPE_GRAND_VITALITY) * 0.1,
 				total.stacks.getCurrent(Stacks::STACK_TYPE_CLARITY) * 0.1,
 		};
-		double health = (intermediate[0] + intermediate[1]) * (intermediate[2] + intermediate[3] + intermediate[4]);
+		double health = intermediate[1] // health from character level is bugged and is not increased by health bonuses
+			+ (intermediate[0] + intermediate[2]) * (intermediate[3] + intermediate[4] + intermediate[5]);
 		if (verbose) {
 			Util::SetConsoleColor(thirdColor);
 			std::cout << "\t      + Max health: " << intermediate[0] << std::endl;
-			std::cout << "\t      + Max healt from stamina: " << intermediate[1] << std::endl;
-			std::cout << "\t      * Health Bonus: " << intermediate[2] * 100 - 100 << "%" << std::endl;
-			if (intermediate[3]) std::cout << "\t              + Health Bonus from Vitality tree node: " << intermediate[3] * 100 - 100 << "%" << std::endl;
-			if (intermediate[4]) std::cout << "\t              + Health Bonus from Clarity Mode tree node: " << intermediate[4] * 100 - 100 << "%" << std::endl;
+			std::cout << "\t      + Max healt from character level: " << intermediate[1] << std::endl;
+			std::cout << "\t      + Max healt from stamina: " << intermediate[2] << std::endl;
+			std::cout << "\t      * Health Bonus: " << intermediate[3] * 100 - 100 << "%" << std::endl;
+			if (intermediate[4]) std::cout << "\t              + Health Bonus from Vitality tree node: " << intermediate[4] * 100 - 100 << "%" << std::endl;
+			if (intermediate[5]) std::cout << "\t              + Health Bonus from Clarity Mode tree node: " << intermediate[5] * 100 - 100 << "%" << std::endl;
 
 			Util::SetConsoleColor(secondColor);
 			std::cout << "\tTotal health: " << health << std::endl;
@@ -291,8 +294,8 @@ std::pair<double, double> Calculator::getRating(const std::map<std::string, int>
 		}
 
 		const double maxArmourDr = 80;
-		const int ruptureLevel = 43;		// 110 1622.122
-		const double ruptureArmourConstant = 1622.122; // https://mycurvefit.com/ 5PL Assymetrical sigmoidal
+		const double ruptureLevel = total.rupture != 0 ? total.rupture : sqrt(total.characterLevel) * 5;
+		//const double ruptureArmourConstant = 1622.122; // https://mycurvefit.com/ 5PL Assymetrical sigmoidal
 		//double armourDr = maxArmourDr - maxArmourDr / (1 + armour / ruptureArmourConstant);
 		double armourDr = armour / (armour + ruptureLevel * 30 + 250);
 		double dr = std::min<double>(total.survivability.damageReduction + total.stacks.getCurrent(Stacks::STACK_TYPE_ENVIGORATING_GUST) * 0.05, 0.5); // max 50% dr
@@ -369,7 +372,7 @@ std::pair<double, double> Calculator::getRating(const std::map<std::string, int>
 					totalAttributes.agility * 0.002,
 					total.per.critChancePerDex * (std::floor(totalAttributes.dexterity / 10) * 10),
 					total.damage.weapon.criticalChance[total.damage.weapon.type],
-					total.stacks.getCurrent(Stacks::STACK_TYPE_PHANTOM_STRIKE) * 10.0,
+					total.stacks.getCurrent(Stacks::STACK_TYPE_PHANTOM_STRIKE) * 0.1,
 		};
 		double unCappedCritChance = std::accumulate(intermediate.begin(), intermediate.end(), 0.0);
 		double cappedCritChance = std::min<double>(unCappedCritChance, 1);

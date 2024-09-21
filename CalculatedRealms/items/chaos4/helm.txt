@@ -5,17 +5,7 @@ Helmet
 Armor +24
 Rain of Flames damage +17.26%
 Boss Damage +3.18%
-Critical Chance +477%
+Critical Chance +4.77%
 GaAin ADDITIONAL 1% DAMAGE BONUS FOR EACH
 EXTRA iNVENTORY SLOT
 |
-
-type: purple
-ARCHEOMN'S COVETOUS
-g Ttem Level 20
-Helmet
-Critical Chance +5.67%
-Critical Damage Bonus +34.64%
-Luck +11.45
-Energy Regeneration 116
-Armor +33.12

@@ -59,17 +59,18 @@ std::string ItemParser::FindClosestStatName(const std::string& statName) {
         "LIGHTNING ABILITIES WILL ALSO BENEFIT FROM FIRE", "LIGHTNING ABILITIES WILL ALSO BENEFIT FROM ARCANE",
         "ARCANE ABILITIES WILL ALSO BENEFIT FROM FIRE", "ARCANE ABILITIES WILL ALSO BENEFIT FROM LIGHTNING",
         "BONUS FIRE DAMAGE FOR A SHORT DURATION.",
-        "THIS AURA GRANTS YOU FIRE DAMAGE BUFF",
+        "THIS AURA GRANTS YOU FIRE DAMAGE BUFF", "ENTERING THiS AURA GRANTS YOU FiRE DAMAGE",
         "BONUS FIRE DAMAGE FOR A SHORT DURATION.",
         "EXTRA INVENTORY SLOT",
         "Energy Regeneration", "Gain  ENERGY REGENERATION", "Life Steal Chance", "Max Health", "Max Health Bonus", "Max Energy", "Health Bonus",
-        "HP Regen Bonus", "Health Regen", "Energy Regen Bonus", "Energy Regen", "Health Regeneration", "Character level",
+        "HP Regen Bonus", "Health Regen", "Energy Regen Bonus", "Energy Regen", "Health Regeneration", "Character level", "Rupture",
         "Strength", "Agility", "Stamina", "Endurance", "Luck", "Dexterity", "Wisdom",
         "Strength Bonus", "Agility Bonus", "Stamina Bonus", "Endurance Bonus", "Luck Bonus", "Dexterity Bonus", "Wisdom Bonus",
         "Damage Bonus", "Experience Bonus", "Damage Reduction", "Damage Reduction Bonus",
         "GET  ATTACK SPEED PER MAX POTION SLOTS", "Gain  CRIT DAMAGE FOR EVERY 100 ARMOR", "FOR EACH AVAILABLE POTION GET  DAMAGE",
         "FOR EACH AVAILABLE POTION GET  ARMOUR", "GaAin ADDITIONAL  DAMAGE BONUS FOR EACH", "Extra Potion Slot",
         "Gain  CRiTicaL CHANCE FOR EVERY 10", "GAin  DEXTERITY BUT HAVE NO LiFE STEAL AND", "For eVERY  POInTS in DEXTERITY GAIn 1",
+        "Apps  HP",
 
     };
 
@@ -205,8 +206,10 @@ void ItemParser::ApplyStat(Stats& stats, const std::string& statName, double val
         {"Gain  ENERGY REGENERATION", [&](Stats& stats, double value) { stats.survivability.energyRegen += value; }},
         {"Life Steal Chance", [&](Stats& stats, double value) { stats.survivability.lifeStealChance += value / 100; }},
         {"Max Health", [&](Stats& stats, double value) { stats.survivability.maxHealth += value; }},
-        {"Character level", [&](Stats& stats, double value) { stats.survivability.maxHealth += value * 5; }},
+        {"Character level", [&](Stats& stats, double value) { stats.characterLevel = value; }},
+        {"Rupture", [&](Stats& stats, double value) { stats.rupture = value; }},
         {"Health Bonus", [&](Stats& stats, double value) { stats.survivability.healthBonus += value / 100; }},
+        {"Apps  HP", [&](Stats& stats, double value) { stats.survivability.healthBonus += value / 100; }},
         {"Max Health Bonus", [&](Stats& stats, double value) { stats.survivability.healthBonus += value / 100; }},
         {"Health Regen", [&](Stats& stats, double value) { stats.survivability.healthRegen += value; }},
         {"Health Regeneration", [&](Stats& stats, double value) { stats.survivability.healthRegen += value; }},
@@ -246,6 +249,7 @@ void ItemParser::ApplyStat(Stats& stats, const std::string& statName, double val
         {"ARCANE ABILITIES WILL ALSO BENEFIT FROM LIGHTNING", [&](Stats& stats, double value) { stats.damage.elemental.mainType = DamageElemental::ELEMENT_TYPE_ARCANE; stats.damage.elemental.secondaryType = DamageElemental::ELEMENT_TYPE_LIGHTNING; }},
         {"ARCANE ABILITIES WILL ALSO BENEFIT FROM FIRE", [&](Stats& stats, double value) { stats.damage.elemental.mainType = DamageElemental::ELEMENT_TYPE_ARCANE; stats.damage.elemental.secondaryType = DamageElemental::ELEMENT_TYPE_FIRE; }},
         {"THIS AURA GRANTS YOU FIRE DAMAGE BUFF", [&](Stats& stats, double value) { stats.damage.elemental.fire += Stacks::AURA_DAMAGE_BUFF * 50 / 100; }},
+        {"ENTERING THiS AURA GRANTS YOU FiRE DAMAGE", [&](Stats& stats, double value) { stats.damage.elemental.fire += Stacks::AURA_DAMAGE_BUFF * 50 / 100; }},
         {"BONUS FIRE DAMAGE FOR A SHORT DURATION.", [&](Stats& stats, double value) { stats.damage.elemental.fire += 50 / 100; }},
     };
 
@@ -357,7 +361,7 @@ std::vector<Stats> ItemParser::ParseStatsFromFile(const std::string& filename) {
             // dragon
             "powerful yet friendly", "WHER ENEMIES DIiE THEIR CORPSE HAS A CHANCE TO", "EXPLODE DEALING FiRE DAMAGE",
             "YOuR DRAGONLING USES ITS MAGIC TO DIRECTLY", "PICK UP ALL LOOT BAGS",
-            "sonus", "CHANCE TO SPAWN AN AURA NEAR YOU EnTERING", "AFTER A DASH CAUSE A FiRE EXPLOSION AND GAin",
+            "sonus", "CHANCE TO SPAWN AN AURA NEAR YOU", "CHANCE TO SPAWN AN AURA NEAR YOU EnTERING", "AFTER A DASH CAUSE A FiRE EXPLOSION AND GAin",
             "WHEN ENEMIES DIE THEIR CORPSE HAS A CHANCE",
             // fire beam
             "Projects an intense beam of concentrated fire", "forward Inflicts damage to enemies in its path", "creating a linear zone of destruction",

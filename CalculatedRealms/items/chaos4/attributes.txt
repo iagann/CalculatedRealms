@@ -1,4 +1,5 @@
 Character level 113
+Rupture 85
 Strength 0
 Agility 0
 Stamina 0

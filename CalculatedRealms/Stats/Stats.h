@@ -17,6 +17,8 @@ public:
 	double xpBonus = 0;
 	double extraInventorySlots = 0;
 	double potionSlots = 0;
+	double characterLevel = 0;
+	double rupture = 0;
 
 	Stats operator+(const Stats& other) const {
 		Stats result = *this;
@@ -28,6 +30,12 @@ public:
 		result.stacks += other.stacks;
 		result.xpBonus += other.xpBonus;
 		result.extraInventorySlots += other.extraInventorySlots;
+		result.potionSlots += other.potionSlots;
+
+		if (result.characterLevel < other.characterLevel)
+			result.characterLevel = other.characterLevel;
+		if (result.rupture < other.rupture)
+			result.rupture = other.rupture;
 
 		return result;
 	}
@@ -44,7 +52,9 @@ public:
 			&& this->per == other.per
 			&& this->stacks == other.stacks
 			&& this->xpBonus == other.xpBonus
-			&& this->extraInventorySlots == other.extraInventorySlots;
+			&& this->extraInventorySlots == other.extraInventorySlots
+			&& this->characterLevel == other.characterLevel
+			&& this->rupture == other.rupture;
 	}
 	bool operator!=(const Stats& other) const {
 		return !(*this == other);

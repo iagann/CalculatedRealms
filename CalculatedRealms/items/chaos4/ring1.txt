@@ -1,9 +1,10 @@
-type: gold
+type: orange
 TIBERIAN SPIRAL
 Q Ttem Level 13
 Ring
-Armor 32
+Armor +32
 Damage +28.88
 Boss Damage +3.6%
-Dexterity Bonus 0.71%
-& 2 Crafting Specks
+Dexterity Bonus +4.5%
+Apps 10% HP.
+|

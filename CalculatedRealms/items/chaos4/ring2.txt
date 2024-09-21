@@ -1,8 +1,10 @@
-type: gold
-MAGICAL ANGEL FLOWER
-Q Ttem Level 3
+type: orange
+MASSADIAN PENDANT
+Q Ttem Level 17
 Ring
-Armor 12
-Two Hand Critical Chance +1.6%
-Archery Damage +5.72%
-& 4 Crafting Specks
+Armor +91.52
+Dexterity Bonus +8.96%
+Fire Damage Bonus 17.77%
+Critical Damage Bonus +20.53%
+Apps 10% HP.
+|

@@ -1,11 +1,10 @@
 type: orange
-EXALTED CHARM
-Ttem Level 12
+CORPSE CIRCLE
+Ttem Level 18
 Relic
-Armor +30
-Arcane Orb Damage +9%
-Fire Damage Bonus +22.71%
-Critical Damage Bonus +12.9%
-GENERATE TWICE AS MUCH FELLOWSHIP
-EXPERIENCE POINTS.
+Armor +92.1
+Lightning Damage Bonus +21.28%
+Fire Damage Bonus +58.8%
+Stamina +8.64
+FOR EACH AVAILABLE POTION, GET 20% DAMAGE.
 |

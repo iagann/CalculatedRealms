@@ -1,10 +1,9 @@
 type: purple
-N SupPInITY
-&\ Ttem Level 10
+DOOMBINDER
+& Ttrem Level 16
 Archery
-Ferocity of Wolves Damage +17.57%
-Dexterity +5.53
-Archery Critical Chance +5.7%
-Archery Critical Damage +1117%
-Archery Damage +1111%
-Damage +66.96
+Dexterity +9.57
+Archery Critical Chance +8.9%
+Archery Critical Damage +17.65%
+Archery Damage +17.72%
+Damage +109.63
