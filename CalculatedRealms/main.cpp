@@ -6,7 +6,7 @@
 #include <iostream>
 #include <conio.h> // For _kbhit() and _getch()
 
-#define ITEMS_FOLDER "items/chaos4"
+#define ITEMS_FOLDER "items/season1"
 
 int main()
 {

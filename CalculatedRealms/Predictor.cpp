@@ -163,7 +163,7 @@ const std::vector<Predictor::PredictedStats> Predictor::cardList = {
 	{ { "Dexterity", 10 }, { "Attack Speed", 75 } }, 
 	{ { "Luck", 10 }, { "Attack Speed", 75 } }, 
 	{ { "Wisdom", 10 }, { "Attack Speed", 75 } }, 
-	{ { "Crit Chance", 5 }, { "Crit Damage Bonus", 20 } }, 
+	{ { "Crit Chance", 3 }, { "Crit Damage Bonus", 20 } }, 
 	{ { "Extra Potion Slot", 1 } }, 
 };
 
@@ -236,7 +236,7 @@ void Predictor::predict(Calculator& calculator, const std::vector<Predictor::Pre
 			k = 3; // if card count is already 3, then next card pick is equal to 6 total cards, 6 - 3 = 3
 		}
 		for (const auto& predictedStat : predictedStats) {
-			if (predictedStat.first == "Extra Potion Slot") {
+			if (predictedStat.first == "Fire Damage Bonus") {
 				int fds = 1;
 			}
 			ItemParser::ApplyStat(stats, predictedStat.first, predictedStat.second * k);
@@ -292,7 +292,7 @@ void Predictor::printCards() {
 	std::cout << "CARDS START" << std::endl;
 	std::cout << "type: cards" << std::endl;
 	for (const PredictedStats& stats : cardList) {
-		std::cout << '"' << statListStr(stats) << '"' << " 0" << std::endl;
+		std::cout << "0 " << '"' << statListStr(stats) << '"' << std::endl;
 	}
 	std::cout << "CARDS END" << std::endl;
 }

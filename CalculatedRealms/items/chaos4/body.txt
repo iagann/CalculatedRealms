@@ -1,10 +1,43 @@
 type: purple
-ARCHEON'S SHAME
+ARCHEON'S SHAME LUCK
 ' Ttem Level 23
 Body
 Spinning Blade Damage +38.4%
 Critical Chance +6.6%
 Critical Damage Bonus +39.63%
 Luck +13.07
+Energy Regeneration +13.05
+Armor +38.57
+
+type: purple
+ARCHEON'S SHAME DEX
+' Ttem Level 23
+Body
+Spinning Blade Damage +38.4%
+Critical Chance +6.6%
+Critical Damage Bonus +39.63%
+Dexterity +13.07
+Energy Regeneration +13.05
+Armor +38.57
+
+type: purple
+ARCHEON'S SHAME STR
+' Ttem Level 23
+Body
+Spinning Blade Damage +38.4%
+Critical Chance +6.6%
+Critical Damage Bonus +39.63%
+Strength +13.07
+Energy Regeneration +13.05
+Armor +38.57
+
+type: purple
+ARCHEON'S SHAME STAMINA
+' Ttem Level 23
+Body
+Spinning Blade Damage +38.4%
+Critical Chance +6.6%
+Critical Damage Bonus +39.63%
+Stamina +13.07
 Energy Regeneration +13.05
 Armor +38.57

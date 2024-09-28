@@ -1,0 +1,7 @@
+type: gold
+STURDY ANGEL FLOWER
+Ring
+Armor 87.2
+Boss Damage +14.25%
+Carnage Of Fire damage +15.52%
+Strength 9.2

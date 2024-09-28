@@ -1,0 +1,9 @@
+type: gold
+HARMORNIYAR TORC
+Q Item Level 13
+Ring
+Armor 32
+Damage 21.23
+Carnage Of Fire damage +9.8%
+One Hand Critical Chance +7.32%
+& 4 Crafting Specks

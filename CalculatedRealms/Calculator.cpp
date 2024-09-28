@@ -235,7 +235,7 @@ std::pair<double, double> Calculator::getRating(const std::map<std::string, int>
 		else {
 			intermediate = {
 				total.survivability.healthRegen,
-				totalAttributes.stamina * 0.03,
+				totalAttributes.stamina * 0.03 * 0,
 				total.survivability.hpRegenBonus,
 				total.stacks.getCurrent(Stacks::STACK_TYPE_ENVIGORATING_GUST) * 0.05,
 				total.stacks.getCurrent(Stacks::STACK_TYPE_TOLERANCE) * 0.1,
@@ -265,7 +265,7 @@ std::pair<double, double> Calculator::getRating(const std::map<std::string, int>
 
 		intermediate = {
 				total.survivability.armor,
-				totalAttributes.dexterity,
+				totalAttributes.dexterity * 0.5,
 				total.per.armourPerPotionSlot * total.potionSlots,
 				total.survivability.armorBonus,
 				total.stacks.getCurrent(Stacks::STACK_TYPE_DEFIANCE) * 0.5,
@@ -369,7 +369,7 @@ std::pair<double, double> Calculator::getRating(const std::map<std::string, int>
 
 		intermediate = {
 					total.damage.base.critChance,
-					totalAttributes.agility * 0.002,
+					totalAttributes.agility * 0.001,
 					total.per.critChancePerDex * (std::floor(totalAttributes.dexterity / 10) * 10),
 					total.damage.weapon.criticalChance[total.damage.weapon.type],
 					total.stacks.getCurrent(Stacks::STACK_TYPE_PHANTOM_STRIKE) * 0.1,
@@ -391,7 +391,7 @@ std::pair<double, double> Calculator::getRating(const std::map<std::string, int>
 
 		intermediate = {
 					total.damage.base.critDamage,
-					totalAttributes.luck * 0.01,
+					totalAttributes.luck * 0.005,
 					total.stacks.getCurrent(Stacks::STACK_TYPE_HIGHTENED_SENCES) * 0.25,
 					total.stacks.getCurrent(Stacks::STACK_TYPE_BEAST_MODE) * 0.15,
 					total.stacks.getCurrent(Stacks::STACK_TYPE_THE_ARCANE_FURY) * 0.01,
@@ -476,8 +476,8 @@ std::pair<double, double> Calculator::getRating(const std::map<std::string, int>
 			std::cout << "\t      * More Offhand damage: " << intermediate[1] * 100 - 100 << "%" << std::endl;
 			std::cout << "\t      * Even more Offhand damage: " << intermediate[2] * 100 - 100 << "%" << std::endl;
 			std::cout << "\t      * Increased Boss damage: " << intermediate[3] * 100 - 100 << "%" << std::endl;
-			if (intermediate[4]) std::cout << "\t              + Increased Boss damage from Monster Hunter tree node: " << intermediate[6] * 100 << "%" << std::endl;
-			if (intermediate[5]) std::cout << "\t              + Increased Boss damage from Beast Mode tree node: " << intermediate[7] * 100 << "%" << std::endl;
+			if (intermediate[4]) std::cout << "\t              + Increased Boss damage from Monster Hunter tree node: " << intermediate[4] * 100 << "%" << std::endl;
+			if (intermediate[5]) std::cout << "\t              + Increased Boss damage from Beast Mode tree node: " << intermediate[5] * 100 << "%" << std::endl;
 
 			Util::SetConsoleColor(secondColor);
 			std::cout << "\tTotal more damage: " << multiply * 100 - 100 << "%" << std::endl;

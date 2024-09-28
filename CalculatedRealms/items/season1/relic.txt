@@ -1,0 +1,10 @@
+type: orange
+SHAIRE BARD
+. Item Level 12
+Relic
+Armor +30
+Life Steal 窶・7.2%
+Boss Damage 3.75%
+Fire Damage Bonus 16.71%
+FOR EACH AVAILABLE POTION, GET 100 ARMOUR.
+& 4 Crafting Specks
