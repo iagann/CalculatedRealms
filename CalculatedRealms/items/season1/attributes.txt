@@ -1,9 +1,0 @@
-Character level 150 
-Rupture 75
-Strength 150
-Agility 0
-Stamina 0
-Endurance 0
-Luck 0
-Dexterity 0
-Wisdom 0

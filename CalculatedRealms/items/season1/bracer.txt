@@ -1,9 +1,0 @@
-type: purple
-BRACERS OF mIGHT
-・・Item Level 20
-Bracer
-Critical Chance 5.92%
-Critical Damage Bonus +33.28%
-Luck 18
-Energy Regeneration 11.64
-Armor 34.33

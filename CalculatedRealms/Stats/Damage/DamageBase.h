@@ -9,6 +9,8 @@ public:
 	double increased = 0;
 	double bossDamage = 0;
 
+	bool doubleDamage = false;
+
 	DamageBase operator+(const DamageBase& other) const {
 		DamageBase result = *this;
 		result.flat += other.flat;
@@ -17,6 +19,9 @@ public:
 		result.attackSpeed += other.attackSpeed;
 		result.increased += other.increased;
 		result.bossDamage += other.bossDamage;
+
+		result.doubleDamage = doubleDamage || other.doubleDamage;
+
 		return result;
 	}
 	DamageBase& operator+=(const DamageBase& other) {
@@ -29,6 +34,7 @@ public:
 			&& this->critDamage == other.critDamage
 			&& this->attackSpeed == other.attackSpeed
 			&& this->increased == other.increased
-			&& this->bossDamage == other.bossDamage;
+			&& this->bossDamage == other.bossDamage
+			&& this->doubleDamage == other.doubleDamage;
 	}
 };

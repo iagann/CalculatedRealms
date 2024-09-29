@@ -21,5 +21,5 @@ public:
 	static void ApplyStat(Stats& stats, const std::string& statName, double value);
 	static std::vector<Stats> ParseStatsFromFile(const std::string& filename);
 	static Stats ParseCardsFromFile(const std::string& filename);
-	static std::vector<std::string> FindTxtFilesInFolder(const std::string& folderPath);
+	static std::vector<std::string> FindPyFilesInFolder(const std::string& folderPath);
 };

@@ -60,7 +60,7 @@ std::string ItemParser::FindClosestStatName(const std::string& statName) {
         "ARCANE ABILITIES WILL ALSO BENEFIT FROM FIRE", "ARCANE ABILITIES WILL ALSO BENEFIT FROM LIGHTNING",
         "FIRE ABILITIES WILL ALSO BENEFIT FROM",
         "THIS AURA GRANTS YOU FIRE DAMAGE BUFF", "ENTERING THiS AURA GRANTS YOU FiRE DAMAGE", "ENTERING THis AURA GRANTS YOU FiRE",
-        "BONUS FIRE DAMAGE FOR A SHORT DURATION.",
+        "BONUS FIRE DAMAGE FOR A SHORT DURATION.", "GAIN BONUS FIRE DAMAGE FOR A SHORT",
         "EXTRA INVENTORY SLOT",
         "Energy Regeneration", "Gain  ENERGY REGENERATION", "Life Steal Chance", "Max Health", "Max Health Bonus", "Max Energy", "Health Bonus",
         "HP Regen Bonus", "Health Regen", "Energy Regen Bonus", "Energy Regen", "Health Regeneration", "Character level", "Rupture",
@@ -69,10 +69,11 @@ std::string ItemParser::FindClosestStatName(const std::string& statName) {
         "Damage Bonus", "Experience Bonus", "Damage Reduction", "Damage Reduction Bonus",
         "GET  ATTACK SPEED PER MAX POTION SLOTS", "Gain  CRIT DAMAGE FOR EVERY 100 ARMOR", "FOR EACH AVAILABLE POTION GET  DAMAGE",
         "FOR EACH AVAILABLE POTION GET  ARMOUR", "GaAin ADDITIONAL  DAMAGE BONUS FOR EACH", "GAiN ADDITIONAL  DAMAGE BONUS FOR", "Extra Potion Slot",
-        "Gain  CRiTicaL CHANCE FOR EVERY 10",
+        "Gain  CRiTicaL CHANCE FOR EVERY 10 LUCK",
         "GAin  DEXTERITY BUT HAVE NO LiFE STEAL AND", "GAiN  DEXTERITY BUT HAVE N0 LiFe",
         "For eVERY  POInTS in DEXTERITY GAIn 1",
-        "Apps  HP",
+        "Apps  HP", "GAIN DOUBLE DAMAGE", "FOR EVERY  POINTS in LUCK GAIN 1 BOSS DAMAGE BONUS",
+        "FoR eveRy  poinTs in Luck GAin 1 DAMAGE",
 
     };
 
@@ -109,8 +110,6 @@ std::string ItemParser::FindClosestStatName(const std::string& statName) {
         return bestMatch;
     }
 
-    Util::ResetConsoleColor();
-    std::cerr << "\t\tStat not found: '" << statName << "'" << std::endl;
     return ""; // Return empty if no suitable match
 }
 
@@ -233,8 +232,8 @@ void ItemParser::ApplyStat(Stats& stats, const std::string& statName, double val
         // special
         {"FOR EACH  POINTS in DEXTERITY GAIN 1% DAMAGE", [&](Stats& stats, double value) { stats.per.increasedDamagePerDex += 0.01 / value; }},
         {"For eVERY  POInTS in DEXTERITY GAIn 1", [&](Stats& stats, double value) { stats.per.increasedDamagePerDex += 0.01 / value; }},
-        {"Gain  CRiTicaL CHANCE FOR EACH 10 DEXTERITY", [&](Stats& stats, double value) { stats.per.critChancePerDex += 0.01 / 10; }},
-        {"Gain  CRiTicaL CHANCE FOR EVERY 10", [&](Stats& stats, double value) { stats.per.critChancePerDex += 0.01 / 10; }},
+        {"Gain  CRiTicaL CHANCE FOR EACH 10 LUCK", [&](Stats& stats, double value) { stats.per.critChancePerLuck += 0.01 / 10; }},
+        {"Gain  CRiTicaL CHANCE FOR EVERY 10 LUCK", [&](Stats& stats, double value) { stats.per.critChancePerLuck += 0.01 / 10; }},
         {"GaAin ADDITIONAL  DAMAGE BONUS FOR EACH", [&](Stats& stats, double value) { stats.per.damagePerExtraInventorySlot += 0.01; }},
         {"GAiN ADDITIONAL  DAMAGE BONUS FOR", [&](Stats& stats, double value) { stats.per.damagePerExtraInventorySlot += 0.01; }},
         {"FOR EACH  POINTS in ENDURANCE GAinN 10", [&](Stats& stats, double value) { stats.per.damagePerEndurance += 10 / 150; }},
@@ -244,7 +243,10 @@ void ItemParser::ApplyStat(Stats& stats, const std::string& statName, double val
         {"Gain  CRIT DAMAGE FOR EVERY 100 ARMOR", [&](Stats& stats, double value) { stats.per.critDamagePerArmour += value * 0.01 / 100; }},
         {"GAin  DEXTERITY BUT HAVE NO LiFE STEAL AND", [&](Stats& stats, double value) { stats.attributes.base.dexterity += value; stats.survivability.disableRegen = true; stats.survivability.disableLeech = true; }},
         {"GAiN  DEXTERITY BUT HAVE N0 LiFe", [&](Stats& stats, double value) { stats.attributes.base.dexterity += value; stats.survivability.disableRegen = true; stats.survivability.disableLeech = true; }},
-
+        {"GAIN DOUBLE DAMAGE", [&](Stats& stats, double value) { stats.damage.base.doubleDamage = true; }},
+        {"Gain  CRiTicaL CHANCE FOR EACH 10 LUCK", [&](Stats& stats, double value) { stats.per.critChancePerLuck += value / 100 / 10; }},
+        {"FOR EVERY  POINTS in LUCK GAIN 1 BOSS DAMAGE BONUS", [&](Stats& stats, double value) { stats.per.bossDamagePerLuck += 0.01 / value; }},
+        {"FoR eveRy  poinTs in Luck GAin 1 DAMAGE", [&](Stats& stats, double value) { stats.per.damagePerLuck += 0.01 / value; }},
         
 
         // dragon
@@ -259,6 +261,8 @@ void ItemParser::ApplyStat(Stats& stats, const std::string& statName, double val
         {"ENTERING THiS AURA GRANTS YOU FiRE DAMAGE", [&](Stats& stats, double value) { stats.damage.elemental.fire += Stacks::AURA_DAMAGE_BUFF * 50 / 100; }},
         {"ENTERING THis AURA GRANTS YOU FiRE", [&](Stats& stats, double value) { stats.damage.elemental.fire += Stacks::AURA_DAMAGE_BUFF * 50 / 100; }},
         {"BONUS FIRE DAMAGE FOR A SHORT DURATION.", [&](Stats& stats, double value) { stats.damage.elemental.fire += 50 / 100; }},
+        {"GAIN BONUS FIRE DAMAGE FOR A SHORT", [&](Stats& stats, double value) { stats.damage.elemental.fire += 50 / 100; }},
+        
     };
 
     // Use a static boolean to prevent repeated modifications
@@ -303,18 +307,20 @@ std::vector<Stats> ItemParser::ParseStatsFromFile(const std::string& filename) {
     }
     int skipLines = 0;
     bool isTree = false;
+    int lineNumber = 0;
     while (std::getline(file, line)) {
         {
+            lineNumber++;
+
             if (skipLines > 0) {
                 skipLines--;
                 continue;
             }
-            if (line == "" && !isTree) {
-                if (stat != Stats()) {
-                    stats.push_back(stat);
-                    stat = Stats();
-                }
-               
+            if (!line.empty() && line[0] == '#')
+                continue;
+            if (line == "" && !isTree && stat != Stats()) {
+                stats.push_back(stat);
+                stat = Stats();
             }
             if (line == "type: cards") {
                 return { ParseCardsFromFile(filename) };
@@ -375,6 +381,7 @@ std::vector<Stats> ItemParser::ParseStatsFromFile(const std::string& filename) {
             "DAmAGE BUFF", 
             "LiGHTninG sonus", "sonus",
             "CHANCE TO SPAWN AN AURA NEAR YOU", "CHANCE TO SPAWN AN AURA NEAR YOU EnTERING", "AFTER A DASH CAUSE A FiRE EXPLOSION AND GAin",
+            "AFTER A DASH CAUSE A FiRE EXPLOSION AND",
             "WHEN ENEMIES DIE THEIR CORPSE HAS A CHANCE",
             // fire beam
             "Projects an intense beam of concentrated fire", "forward Inflicts damage to enemies in its path", "creating a linear zone of destruction",
@@ -396,12 +403,16 @@ std::vector<Stats> ItemParser::ParseStatsFromFile(const std::string& filename) {
             // carnage of fire
             "Generates volatile lava droplets Molten projectiles", "ctonate on impact dealing areaofcffect damage to",
             "nemies within the blast radius", "CaRrnAGE oF Fire Mow spawns on Enemies", "CaRnAGE OF Fire EXPLOSIONS RADIUS GROWS",
+            "Generates volatile lava droplets", "Molten projectiles detonate on", 
+            "mpact dealing areaofeffect damage", "CarnaGe oF Fire Mow spawns on", "enemies",
+            "Carnace oF Fire ExpLosions RaDiUs",
             // unused
             " ", "Gain  MOVEMENT SPEED", "Procs", "Crafting Specks", "WHER KiLLING AN iMBUED BEETLE SHARE REWARD", "WIiTH ENTIRE FELLOWSHIP",
             "WHER KiLLING An ELITE ENEMY GaAin  TO sPawn", "ANOTHER ELITE", "burning core Damage",
             "GET  MOVEMENT SPEED PER MAX POTION SLOTS", "GENERATE TWICE AS MUCH FELLOWSHIP", "EACH EXTRA INVENTORY SLOT",
             "STEAL ANID N HEALTH REGENERATION", 
             "WHER KILLING AN ELITE EnEmy GAin", "CHANCE TO SPAWN ANOTHER ELITE",
+            "IF YOUR ATTACKS HiT WiTHin  mETERS", "Duration",
         };
         bool ignore = false;
         auto before = line;
@@ -436,12 +447,17 @@ std::vector<Stats> ItemParser::ParseStatsFromFile(const std::string& filename) {
         line = Trim(line);
 
         std::string statName = FindClosestStatName(line);
+        if (statName.empty()) {
+            Util::ResetConsoleColor();
+            std::cerr << "\t\tStat not found: '" << line << "' in file " << filename << " line " << lineNumber << std::endl;
+        }
         if (hasNumber) {
             if (!statName.empty()) {
                 ApplyStat(stat, statName, value);
             }
         }
-        else if (statName.find("WILL ALSO BENEFIT FROM") != std::string::npos) {
+        else if (statName.find("WILL ALSO BENEFIT FROM") != std::string::npos
+            || statName.find("GAIN DOUBLE DAMAGE") != std::string::npos) {
             ApplyStat(stat, statName, 1);
         }
         else {
@@ -454,7 +470,8 @@ std::vector<Stats> ItemParser::ParseStatsFromFile(const std::string& filename) {
 
     if (verbose) Util::ResetConsoleColor();
 
-    stats.push_back(stat);
+    if (stat != Stats())
+        stats.push_back(stat);
 
     return stats;
 }
@@ -547,9 +564,9 @@ std::string ItemParser::WStringToString(const std::wstring& wstr) {
 }
 
 // Function to list all .txt files in a specified folder
-std::vector<std::string> ItemParser::FindTxtFilesInFolder(const std::string& folderPath) {
+std::vector<std::string> ItemParser::FindPyFilesInFolder(const std::string& folderPath) {
     std::vector<std::string> txtFiles;
-    std::wstring searchPath = StringToWString(folderPath) + L"\\*.txt"; // Convert search pattern to wide string
+    std::wstring searchPath = StringToWString(folderPath) + L"\\*.py"; // Convert search pattern to wide string
 
     WIN32_FIND_DATAW findData;
     HANDLE hFind = FindFirstFileW(searchPath.c_str(), &findData);

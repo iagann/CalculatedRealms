@@ -1,9 +1,0 @@
-type: purple
-SuUrInITY
-k\窶兔窶・Ttem Level 21
-Archery
-Dexterity 11.57
-Archery Critical Chance +12.34%
-Archery Critical Damage ~24.16%
-Archery Damage ~23.81%
-Damage 141.94

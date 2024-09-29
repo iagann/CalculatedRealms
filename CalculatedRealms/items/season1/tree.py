@@ -1,8 +1,8 @@
 type: tree
 
-    Health Bonus: +63%
+     Health Bonus: +68%
     HP Regen Bonus: +2.85%
-    Armor Bonus: +81%
+    Armor Bonus: +90%
 
 Procs:
 
@@ -25,11 +25,11 @@ Procs:
 
 Damage ⌄
 
-    Damage Bonus: +26%
+    Damage Bonus: +34%
     Arcane Damage Bonus: +12%
     Fire Damage Bonus: +80%
     Lightning Damage Bonus: +80%
-    Boss Damage Bonus: +43%
+    Boss Damage Bonus: +52%
 
 Procs:
 
@@ -44,7 +44,7 @@ Stats ⌄
 
     Agility Bonus: +2%
     Endurance Bonus: +2%
-    Strength Bonus: +12%
+    Strength Bonus: +22%
 
 Procs:
 
@@ -52,7 +52,7 @@ Procs:
 
 Utility ⌄
 
-    Inventory Slots: +74
+    Inventory Slots: +92
     Experience Bonus: +25%
     Energy Regen Bonus: +20%
     Energy Regen: +1

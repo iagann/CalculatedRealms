@@ -19,7 +19,7 @@ const std::vector<Predictor::PredictedStats> Predictor::treeNodeList = {
 	{ { "Endurance Bonus", 2 } },
 	{ { "Armor Bonus", 5 } },
 	{ { "HP Regen Bonus", 0.25 } },
-	{ { "Crit Chance Bonus", 1 } },
+	{ { "Crit Chance Bonus", 0.5 } },
 	{ { "Energy Regen Bonus", 2 } },
 	{ { "Crit Damage Bonus", 0.5 } },
 	{ { "Boss Damage Bonus", 3 } },
@@ -39,8 +39,9 @@ const std::vector<Predictor::PredictedStats> Predictor::treeNodeList = {
 	{ { "Arcane Damage Bonus", 25 } },
 	
 	// hybrid
+	{ { "Crit Chance Bonus", 1 }, { "Crit Damage Bonus", 1 } },
 	{ { "Crit Chance Bonus", 1 }, { "Crit Damage Bonus", 0.5 } },
-	{ { "Strength Bonus", 1 }, { "Damage Bonus", 0.5 } },
+	{ { "Strength Bonus", 1 }, { "Damage Bonus", 1 } },
 	{ { "HP Regen Bonus", 0.15 }, { "Energy Regen Bonus", 1 } },
 	{ { "Armor Bonus", 2 }, { "Health Bonus", 2 } },
 	
@@ -236,7 +237,7 @@ void Predictor::predict(Calculator& calculator, const std::vector<Predictor::Pre
 			k = 3; // if card count is already 3, then next card pick is equal to 6 total cards, 6 - 3 = 3
 		}
 		for (const auto& predictedStat : predictedStats) {
-			if (predictedStat.first == "Fire Damage Bonus") {
+			if (predictedStat.first == "Max Health Bonus") {
 				int fds = 1;
 			}
 			ItemParser::ApplyStat(stats, predictedStat.first, predictedStat.second * k);

@@ -1,9 +1,0 @@
-type: purple
-ARCHEOR'S DECEIT
-窶・Item Level 17
-Gloves
-Critical Chance +4.85%
-Critical Damage Bonus +28.2%
-Luck 9.72
-Energy Regeneration 9.54
-Armor 30.53

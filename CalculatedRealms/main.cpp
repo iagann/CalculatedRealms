@@ -31,7 +31,7 @@ int main()
 
         std::map<std::string, std::vector<Stats>> stats;
 
-        auto files = ItemParser::FindTxtFilesInFolder(ITEMS_FOLDER);
+        auto files = ItemParser::FindPyFilesInFolder(ITEMS_FOLDER);
         for (const auto& file : files) {
             stats.insert(std::make_pair(file, ItemParser::ParseStatsFromFile(ITEMS_FOLDER + std::string("/") + file)));
         }

@@ -8,4 +8,3 @@ Archery Critical Damage 窶廝5%
 Sritical Chance +4.92%
 GAin ADDITIONAL 1% DAMAGE BONUS FOR
 EACH EXTRA iNVENTORY SLOT
-|
