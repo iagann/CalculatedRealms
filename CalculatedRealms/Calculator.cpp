@@ -237,22 +237,22 @@ std::pair<double, double> Calculator::getRating(const std::map<std::string, int>
 			intermediate = {
 				total.survivability.healthRegen,
 				totalAttributes.stamina * 0.03 * 0,
-				total.survivability.hpRegenBonus,
-				total.stacks.getCurrent(Stacks::STACK_TYPE_ENVIGORATING_GUST) * 0.05,
-				total.stacks.getCurrent(Stacks::STACK_TYPE_TOLERANCE) * 0.1,
-				total.stacks.getCurrent(Stacks::STACK_TYPE_CLARITY) * 0.1,
+				total.survivability.hpRegenBonus * health,
+				total.stacks.getCurrent(Stacks::STACK_TYPE_ENVIGORATING_GUST) * 0.05 * health,
+				total.stacks.getCurrent(Stacks::STACK_TYPE_TOLERANCE) * 0.1 * health,
+				total.stacks.getCurrent(Stacks::STACK_TYPE_CLARITY) * 0.01 * health,
 			};
-			double regen = (intermediate[0] + intermediate[1]) * (intermediate[2] + intermediate[3] + intermediate[4] + intermediate[5]);
+			double regen = intermediate[0] + intermediate[1] + intermediate[2] + intermediate[3] + intermediate[4] + intermediate[5];
 			preudoHp += REGEN_WEIGHT * regen;
 			if (verbose) {
 				Util::SetConsoleColor(thirdColor);
 
 				std::cout << "\t      + Health Regen: " << intermediate[0] << std::endl;
 				std::cout << "\t      + Health Regen from stamina: " << intermediate[1] << std::endl;
-				std::cout << "\t      * Health Regen Bonus: " << intermediate[2] * 100 - 100 << "%" << std::endl;
-				if (intermediate[3]) std::cout << "\t      + Health Regen Bonus from Envigorating Gust tree node: " << intermediate[3] * 100 - 100 << "%" << std::endl;
-				if (intermediate[4]) std::cout << "\t      + Health Regen Bonus from Tolerance tree node: " << intermediate[4] * 100 - 100 << "%" << std::endl;
-				if (intermediate[5]) std::cout << "\t      + Health Regen Bonus from Clarity tree node: " << intermediate[5] * 100 - 100 << "%" << std::endl;
+				std::cout << "\t      + Health Regen Bonus: " << intermediate[2] << std::endl;
+				std::cout << "\t      + Health Regen Bonus from Envigorating Gust tree node: " << intermediate[3] << std::endl;
+				std::cout << "\t      + Health Regen Bonus from Tolerance tree node: " << intermediate[4] << std::endl;
+				std::cout << "\t      + Health Regen Bonus from Clarity tree node: " << intermediate[5] << std::endl;
 
 				Util::SetConsoleColor(secondColor);
 				std::cout << "\tTotal Health Regen: " << regen << std::endl;
@@ -274,9 +274,8 @@ std::pair<double, double> Calculator::getRating(const std::map<std::string, int>
 				total.stacks.getCurrent(Stacks::STACK_TYPE_TASTE_MY_LIGHTNING) * 0.01,
 				total.stacks.getCurrent(Stacks::STACK_TYPE_ANCESTRAL_BARRIER) * 0.5,
 		};
-		int i = 0;
-		armour = (intermediate[i++] + intermediate[i++] + intermediate[i++])
-			* (intermediate[i++] + intermediate[i++] + intermediate[i++] + intermediate[i++] + intermediate[i++] + intermediate[i++]);
+		armour = (intermediate[0] + intermediate[1] + intermediate[2])
+			* (intermediate[3] + intermediate[4] + intermediate[5] + intermediate[6] + intermediate[7] + intermediate[8]);
 		if (verbose) {
 			Util::SetConsoleColor(thirdColor);
 			std::cout << "\t      + Armor: " << intermediate[0] << std::endl;

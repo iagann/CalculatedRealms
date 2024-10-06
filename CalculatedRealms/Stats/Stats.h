@@ -91,7 +91,7 @@ public:
 		result.survivability.maxHealth = 100;
 		result.survivability.healthBonus = 1;
 		result.survivability.healthRegen = 1;
-		result.survivability.hpRegenBonus = 1;
+		result.survivability.hpRegenBonus = 0;
 		result.survivability.maxEnergy = 100;
 		result.survivability.energyRegen = 1.2;
 		result.survivability.energyRegenBonus = 1;
