@@ -258,11 +258,11 @@ void ItemParser::ApplyStat(Stats& stats, const std::string& statName, double val
         {"LIGHTNING ABILITIES WILL ALSO BENEFIT FROM ARCANE", [&](Stats& stats, double value) { stats.damage.elemental.mainType = DamageElemental::ELEMENT_TYPE_LIGHTNING; stats.damage.elemental.secondaryType = DamageElemental::ELEMENT_TYPE_ARCANE; }},
         {"ARCANE ABILITIES WILL ALSO BENEFIT FROM LIGHTNING", [&](Stats& stats, double value) { stats.damage.elemental.mainType = DamageElemental::ELEMENT_TYPE_ARCANE; stats.damage.elemental.secondaryType = DamageElemental::ELEMENT_TYPE_LIGHTNING; }},
         {"ARCANE ABILITIES WILL ALSO BENEFIT FROM FIRE", [&](Stats& stats, double value) { stats.damage.elemental.mainType = DamageElemental::ELEMENT_TYPE_ARCANE; stats.damage.elemental.secondaryType = DamageElemental::ELEMENT_TYPE_FIRE; }},
-        {"THIS AURA GRANTS YOU FIRE DAMAGE BUFF", [&](Stats& stats, double value) { stats.damage.elemental.fire += Stacks::AURA_DAMAGE_BUFF * 50 / 100; }},
-        {"ENTERING THiS AURA GRANTS YOU FiRE DAMAGE", [&](Stats& stats, double value) { stats.damage.elemental.fire += Stacks::AURA_DAMAGE_BUFF * 50 / 100; }},
-        {"ENTERING THis AURA GRANTS YOU FiRE", [&](Stats& stats, double value) { stats.damage.elemental.fire += Stacks::AURA_DAMAGE_BUFF * 50 / 100; }},
-        {"BONUS FIRE DAMAGE FOR A SHORT DURATION.", [&](Stats& stats, double value) { stats.damage.elemental.fire += 50 / 100; }},
-        {"GAIN BONUS FIRE DAMAGE FOR A SHORT", [&](Stats& stats, double value) { stats.damage.elemental.fire += 50 / 100; }},
+        {"THIS AURA GRANTS YOU FIRE DAMAGE BUFF", [&](Stats& stats, double value) { stats.damage.elemental.fire += Stacks::AURA_DAMAGE_BUFF * 5 / 100; }},
+        {"ENTERING THiS AURA GRANTS YOU FiRE DAMAGE", [&](Stats& stats, double value) { stats.damage.elemental.fire += Stacks::AURA_DAMAGE_BUFF * 5 / 100; }},
+        {"ENTERING THis AURA GRANTS YOU FiRE", [&](Stats& stats, double value) { stats.damage.elemental.fire += Stacks::AURA_DAMAGE_BUFF * 5 / 100; }},
+        {"BONUS FIRE DAMAGE FOR A SHORT DURATION.", [&](Stats& stats, double value) { stats.damage.elemental.fire += 5 / 100; }},
+        {"GAIN BONUS FIRE DAMAGE FOR A SHORT", [&](Stats& stats, double value) { stats.damage.elemental.fire += 5 / 100; }},
         
     };
 
