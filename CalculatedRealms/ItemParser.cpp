@@ -73,7 +73,7 @@ std::string ItemParser::FindClosestStatName(const std::string& statName) {
         "GAin  DEXTERITY BUT HAVE NO LiFE STEAL AND", "GAiN  DEXTERITY BUT HAVE N0 LiFe",
         "For eVERY  POInTS in DEXTERITY GAIn 1",
         "Apps  HP", "GAIN DOUBLE DAMAGE", "FOR EVERY  POINTS in LUCK GAIN 1 BOSS DAMAGE BONUS",
-        "FoR eveRy  poinTs in Luck GAin 1 DAMAGE",
+        "FoR eveRy  poinTs in Luck GAin 1 DAMAGE", "FOR EVERY  POINTS iN LUCK YOU GET 1 HEALTH",
 
     };
 
@@ -247,6 +247,7 @@ void ItemParser::ApplyStat(Stats& stats, const std::string& statName, double val
         {"Gain  CRiTicaL CHANCE FOR EACH 10 LUCK", [&](Stats& stats, double value) { stats.per.critChancePerLuck += value / 100 / 10; }},
         {"FOR EVERY  POINTS in LUCK GAIN 1 BOSS DAMAGE BONUS", [&](Stats& stats, double value) { stats.per.bossDamagePerLuck += 0.01 / value; }},
         {"FoR eveRy  poinTs in Luck GAin 1 DAMAGE", [&](Stats& stats, double value) { stats.per.damagePerLuck += 0.01 / value; }},
+        {"FOR EVERY  POINTS iN LUCK YOU GET 1 HEALTH", [&](Stats& stats, double value) { stats.per.bonusHealthPerLuck += 0.01 / value; }},
         
 
         // dragon

@@ -12,6 +12,7 @@ public:
 	double critDamagePerArmour = 0;
 	double bossDamagePerLuck = 0;
 	double damagePerLuck = 0;
+	double bonusHealthPerLuck = 0;
 
 	Per operator+(const Per& other) const {
 		Per result = *this;
@@ -25,6 +26,7 @@ public:
 		result.critDamagePerArmour += other.critDamagePerArmour;
 		result.bossDamagePerLuck += other.bossDamagePerLuck;
 		result.damagePerLuck += other.damagePerLuck;
+		result.bonusHealthPerLuck += other.bonusHealthPerLuck;
 		return result;
 	}
 	Per& operator+=(const Per& other) {
@@ -41,6 +43,7 @@ public:
 			&& this->armourPerPotionSlot == other.armourPerPotionSlot
 			&& this->critDamagePerArmour == other.critDamagePerArmour
 			&& this->bossDamagePerLuck == other.bossDamagePerLuck
-			&& this->damagePerLuck == other.damagePerLuck;
+			&& this->damagePerLuck == other.damagePerLuck
+			&& this->bonusHealthPerLuck == other.bonusHealthPerLuck;
 	}
 };

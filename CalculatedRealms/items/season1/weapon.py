@@ -1,13 +1,13 @@
 type: purple
 SuUrInITY
-k\窶兔窶・Ttem Level 29
+k\窶兔窶・Ttem Level 33
 Archery
-Arcane Orb Damage +48.36%
-Dexterity 74
-Archery Critical Chance 16.53%
-Archery Critical Damage 33.67%
-Archery Damage 33.71%
-Damage 199.66
+Spinning Blade Damage +55.87%
+Dexterity +19.62
+Archery Critical Chance +19.66%
+Archery Critical Damage 37.24%
+Archery Damage +37.73%
+Damage 236.58
 
 # type: gold
 # TIBERIAR INRARGLER

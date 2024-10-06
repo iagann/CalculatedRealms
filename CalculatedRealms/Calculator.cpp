@@ -212,6 +212,7 @@ std::pair<double, double> Calculator::getRating(const std::map<std::string, int>
 				total.survivability.healthBonus,
 				total.stacks.getCurrent(Stacks::STACK_TYPE_GRAND_VITALITY) * 0.1,
 				total.stacks.getCurrent(Stacks::STACK_TYPE_CLARITY) * 0.1,
+				total.per.bonusHealthPerLuck * totalAttributes.luck
 		};
 		double health = intermediate[1] // health from character level is bugged and is not increased by health bonuses
 			+ (intermediate[0] + intermediate[2]) * (intermediate[3] + intermediate[4] + intermediate[5]);
@@ -223,7 +224,7 @@ std::pair<double, double> Calculator::getRating(const std::map<std::string, int>
 			std::cout << "\t      * Health Bonus: " << intermediate[3] * 100 - 100 << "%" << std::endl;
 			if (intermediate[4]) std::cout << "\t              + Health Bonus from Vitality tree node: " << intermediate[4] * 100 - 100 << "%" << std::endl;
 			if (intermediate[5]) std::cout << "\t              + Health Bonus from Clarity Mode tree node: " << intermediate[5] * 100 - 100 << "%" << std::endl;
-
+			if (intermediate[6]) std::cout << "\t              + Health Bonus from luck: " << intermediate[6] * 100 - 100 << "%" << std::endl;
 			Util::SetConsoleColor(secondColor);
 			std::cout << "\tTotal health: " << health << std::endl;
 		}
@@ -249,10 +250,9 @@ std::pair<double, double> Calculator::getRating(const std::map<std::string, int>
 				std::cout << "\t      + Health Regen: " << intermediate[0] << std::endl;
 				std::cout << "\t      + Health Regen from stamina: " << intermediate[1] << std::endl;
 				std::cout << "\t      * Health Regen Bonus: " << intermediate[2] * 100 - 100 << "%" << std::endl;
-				if (intermediate[3]) std::cout << "\t/t      + Health Regen Bonus from Envigorating Gust tree node: " << intermediate[3] * 100 - 100 << "%" << std::endl;
-				if (intermediate[4]) std::cout << "\t/t      + Health Regen Bonus from Tolerance tree node: " << intermediate[4] * 100 - 100 << "%" << std::endl;
-				if (intermediate[5]) std::cout << "\t/t      + Health Regen Bonus from Clarity tree node: " << intermediate[5] * 100 - 100 << "%" << std::endl;
-
+				if (intermediate[3]) std::cout << "\t      + Health Regen Bonus from Envigorating Gust tree node: " << intermediate[3] * 100 - 100 << "%" << std::endl;
+				if (intermediate[4]) std::cout << "\t      + Health Regen Bonus from Tolerance tree node: " << intermediate[4] * 100 - 100 << "%" << std::endl;
+				if (intermediate[5]) std::cout << "\t      + Health Regen Bonus from Clarity tree node: " << intermediate[5] * 100 - 100 << "%" << std::endl;
 
 				Util::SetConsoleColor(secondColor);
 				std::cout << "\tTotal Health Regen: " << regen << std::endl;
